@@ -1,0 +1,22 @@
+<
+
+<div class="form">
+  <div id="blogger_signin"> 
+    <h1>Sign up</h1>
+
+      <%= form_for(resource, :as => :user, :url => new_user_registration_path(:user)) do |f| %>
+        <%= devise_error_messages! %>
+
+          <div><%= f.label :email %><br />
+          <%= f.email_field :email %></div>
+
+          <div><%= f.label :password %><br />
+          <%= f.password_field :password %></div>
+
+          <div><%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation %></div>
+
+        <div><%= f.submit "Sign up" %></div>
+      <% end %>
+  </div>
+</div>
