@@ -7,19 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<nav class="navbar navbar-inverse" role="navigation">
+<nav class="navbar navbar-default" role="navigation">
     <div class="navbar-header">
-      <a class="navbar-brand" href='#'>MISCELLANY</a>
+      <%= link_to "MISCELLANY", root_path, class: "navbar-brand" %>
     </div>
     <div class="container">
       <ul class="nav navbar-nav">
-        <li><a href='posts_url'>Blogger</a></li>
+        <li><%= link_to "Blogger", posts_path %></li>
         <li><a href='#'>TaskManager</a></li>
       </ul>
+      <% if user_signed_in? %>
+      <%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: "navbar-text navbar-right" %>
+      <% end %>
     </div>
 </nav>
-
-<%= yield %>
+<div class="container"><%= yield %></div>
 
 </body>
 </html>
