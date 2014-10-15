@@ -2,7 +2,6 @@
 @import "bootstrap";
 
 * {
-  font-family: sans-serif;
   font-weight: 100;
 }
 .navbar-brand {
@@ -12,8 +11,7 @@
 
 h1 {
   font-weight: 100;
-  font-size: 30px;
-  font-family: sans-serif;
+  font-size: 40px;
   text-align: center;  
 }
 
@@ -23,12 +21,34 @@ h1 {
  font-weight: 100;
 }
 
+.links {
+  text-align: center;
+  font-size: 20px;
+}
 
-
-#about {
+.about-paragraphs {
   font-size: 20px;
 }
 
 .homepage {
   padding-top: 100;
+}
+
+#post-form {
+  text-align: center;
+}
+
+.post-title {
+  font-size: 30px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.post-body {
+  font-size: 20px;
+  text-align: center;
+}
+
+.new-post-link {
+  text-align: center;
 }

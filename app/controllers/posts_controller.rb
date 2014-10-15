@@ -3,27 +3,34 @@ class PostsController < ApplicationController
   
   before_action :authenticate_user!
  
+ 
   def index
    @posts = Post.all
   end
 
+  
   def show
     @post = Post.find(params[:id])
   end
 
+  
   def new
-    @post = Post.new
+     @post = Post.new
   end
 
+  
   def create
     @post = Post.new(post_params)
-    @post.save
-
-    flash.notice = "'#{post.title}' hsa been Created!"
-
-    redirect_to post_path(@post)
-  end 
-
+    respond_to do |format|
+      if @post.save
+        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @post }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   def destroy
     @post = Post.find(params[:id])
@@ -31,7 +38,7 @@ class PostsController < ApplicationController
 
     flash.notice = "'#{@post.title}' has been Deleted!"
 
-    redirect_to action: 'index'
+    redirect_to posts_path
   end
 
   
@@ -46,12 +53,8 @@ class PostsController < ApplicationController
 
     flash.notice = "'#{@post.title}' has been Updated!"
 
-    redirect_to article_path(@post)
+    redirect_to post_path(@post)
   end
-
-
-
-  
 
 end
 
