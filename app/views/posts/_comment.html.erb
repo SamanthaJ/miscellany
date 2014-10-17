@@ -1,0 +1,5 @@
+<div class="container">
+  <h1>Comment by <%= @comment.user_name %></h1>
+  <p><%= @comment.body %></p>
+    <p>Posted <%= distance_of_time_in_words(comment.post.created_at, comment.created_at) %> later </p>
+</div>
