@@ -2,12 +2,11 @@ class CommentsController < ApplicationController
   include CommentsHelper
 
   def create
-    @comment = Comment.new(comment_params)
-    @comment.post_id = params[:post_id]
+    post = Post.find(params[:post_id ])
+    comment = post.comments.create(comment_params)
+    
 
-    @comment.save
-
-    redirect_to article_path(@comment.article)
+    redirect_to post_path(comment.post)
   end
 
   

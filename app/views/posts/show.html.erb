@@ -1,13 +1,23 @@
-<div class="container">
+<div class="container"> 
   <div class="show-post">
     <h1><%= @post.title %></h1>
     <p><%= @post.body %></p>
     <%= link_to "Delete", @post, method: :delete, data: {confirm: "You sure you want to delete this post?"}, class: "links" %>
     <%= link_to "Edit", edit_post_path(@post), class: "links" %><br/>
-    <h1>Comments</h1>
-    <%= render partial: 'comment' %>
-    <%= render partial: 'form' %>
-    <%= link_to "<<back", posts_path, class: "links" %>
-
-  </div>
-</div
+    <div class="row">
+        <div class="col-md-offset-4 col-md-3"></div>
+          <h1><%= pluralize @post.comments.count, "Comment" %></h1>
+          <% @comments.each do |comment| %>
+            <div class="panel panel-info">
+              <div class="panel-heading"><%= comment.user_name %></div>
+                <div class="panel-content">
+                  <p><%= comment.body %></p>
+                  <p>Posted <%= distance_of_time_in_words(comment.post.created_at, comment.created_at) %> later </p>
+              </div>
+            </div>
+        <% end %>
+        <%= render partial: 'comments/form' %>
+        <%= link_to "<<back", posts_path, class: "links" %>
+      </div>
+    </div>
+</div>
