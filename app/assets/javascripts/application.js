@@ -12,5 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
+$( document ).ready( function () {
+  $(".create-link").click(function() {
+    $(".hidden-form-container").fadeIn("slow")
+    $(".create-link").hide()
+
+  })
+
+  }
+) 

@@ -3,9 +3,6 @@
 
 * {
   font-weight: 100;
-  h1 {
-    color: gray;
-  }
 }
 
 body {
@@ -16,11 +13,22 @@ body {
   text-align: left; 
 }
 
+.title {
+  text-decoration: underline;
+  
+}
+
 h1 {
   font-weight: 100;
   font-size: 40px;
   text-align: center;  
+  color: gray;
 }
+
+h2 {
+    font-weight: 100;
+    color: gray;
+  }
 
 p {
   font-size: 25px;
@@ -70,5 +78,16 @@ p {
     font-style: italic;
   }
   
+}
+
+.hidden-form-container {
+  display: none;
+}
+
+.tasks-index {
+  text-align: center;
+  h1 {
+    text-decoration: underline;
+  }
 }
 

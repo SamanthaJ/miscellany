@@ -3,7 +3,7 @@
 <head>
   <title>Miscellany</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -14,7 +14,7 @@
     <div class="container">
       <ul class="nav navbar-nav">
         <li><%= link_to "Blogger", posts_path %></li>
-        <li><%= link_to "TaskManager", '#' %></li>
+        <li><%= link_to "TaskManager", tasks_path %></li>
         <li><%= link_to "InventoryTracker", '#' %></li>
       </ul>
       <% if user_signed_in? %>

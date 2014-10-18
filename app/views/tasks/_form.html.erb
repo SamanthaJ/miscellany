@@ -1,0 +1,15 @@
+<div class="form"> 
+  <%= form_for (Task.new) do |f| %>
+    <%= f.label :task_type, "Add a task" %><br>
+    <%= f.text_field :task_type %><br/>
+   
+    <%= f.label :priority, "Priority level" %><br>
+    <%= f.number_field :priority %><br/>
+
+    <%= f.label :duration_in_minutes %><br/>
+    <%= f.number_field :duration_in_minutes %><br/>
+
+    <%= f.submit %>
+ 
+  <% end %>
+</div>
