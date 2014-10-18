@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141017172524) do
+ActiveRecord::Schema.define(version: 20141018191116) do
 
   create_table "comments", force: true do |t|
     t.integer  "post_id"
@@ -28,6 +28,17 @@ ActiveRecord::Schema.define(version: 20141017172524) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+  end
+
+  create_table "tasks", force: true do |t|
+    t.string   "task_type"
+    t.integer  "priority"
+    t.string   "duration_in_minutes"
+    t.boolean  "complete"
+    t.boolean  "optimal"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
