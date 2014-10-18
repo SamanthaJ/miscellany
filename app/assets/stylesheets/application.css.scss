@@ -3,6 +3,13 @@
 
 * {
   font-weight: 100;
+  h1 {
+    color: gray;
+  }
+}
+
+body {
+  padding-top: 60px;
 }
 
 .navbar-brand {
@@ -33,6 +40,7 @@ p {
 .show-post {
   text-align: center;
   font-size: 25px;
+  padding-bottom: 150px;
 }
 
 .posts-index {
@@ -44,7 +52,23 @@ p {
 }
 
 .comments {
+  font-size: 25px;
+  text-align: center;
+  font-weight: 100;
+  border-style: solid;
+  border-width: thin;
+  
+  h2 {
+    font-weight: 100;
+  }
+  
+  h3 {
+    font-weight: 100;
+    color: gray;
+  }
+  .time-posted {
+    font-style: italic;
+  }
   
 }
-
 
