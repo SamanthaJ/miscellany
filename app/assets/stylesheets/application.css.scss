@@ -3,19 +3,11 @@
 
 * {
   font-weight: 100;
+  text-align: center;
 }
 
 body {
   padding-top: 60px;
-}
-
-.navbar-brand {
-  text-align: left; 
-}
-
-.title {
-  text-decoration: underline;
-  
 }
 
 h1 {
@@ -28,12 +20,24 @@ h1 {
 h2 {
     font-weight: 100;
     color: gray;
-  }
+}
+
+h3 {
+    font-weight: 100;
+    color: gray;
+}
 
 p {
   font-size: 25px;
 }
 
+.navbar-brand {
+  font-size: 30px;
+}
+
+.title {
+  padding-bottom: 60px;
+}
 
 .form {
  text-align: center; 
@@ -65,19 +69,9 @@ p {
   font-weight: 100;
   border-style: solid;
   border-width: thin;
-  
-  h2 {
-    font-weight: 100;
-  }
-  
-  h3 {
-    font-weight: 100;
-    color: gray;
-  }
   .time-posted {
     font-style: italic;
   }
-  
 }
 
 .hidden-form-container {
@@ -86,8 +80,5 @@ p {
 
 .tasks-index {
   text-align: center;
-  h1 {
-    text-decoration: underline;
-  }
 }
 
