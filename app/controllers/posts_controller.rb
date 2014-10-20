@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   include PostsHelper
   
+  before_action :set_product, except: [:index, :new, :create,]
   before_action :authenticate_user!, except: [:index, :show]
  
  
@@ -11,7 +12,6 @@ class PostsController < ApplicationController
 
   
   def show
-    @post = Post.find(params[:id])
     @comments = @post.comments
     @comment = Comment.new
   end
@@ -36,7 +36,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
 
     flash.notice = "'#{@post.title}' has been Deleted!"
@@ -46,18 +45,27 @@ class PostsController < ApplicationController
 
   
   def edit
-    @post = Post.find(params[:id])
   end
 
   
   def update
-    @post = Post.find(params[:id])
     @post.update(post_params)
 
     flash.notice = "'#{@post.title}' has been Updated!"
 
     redirect_to post_path(@post)
   end
+
+  private
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
+  def post_params
+    params.require(:post).permit(:author, :title, :body)
+  end
+
 
 end
 
