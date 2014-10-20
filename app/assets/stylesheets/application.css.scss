@@ -83,8 +83,30 @@ p {
 }
 
 .product-show {
-  p {
-    font-size: 25px;
+  font-size: 20px;
+  text-align: left;
+    h2 {
+      text-align: left;
+    }
+    .links {
+      text-align: left;
+    }
+}
+
+.products-index {
+  text-align: center;
+  .products-table {
+    h2 {
+      text-align: left;
+    }
+    th {
+      font-size: 35px;
+      color: gray;
+    }
+    td {
+      font-size: 20px;
+    }
   }
 }
+
 

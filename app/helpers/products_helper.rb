@@ -4,7 +4,7 @@ module ProductsHelper
     number_to_currency price
   end
 
-  def print_stock
+  def print_stock stock
     if stock > 0
       content_tag(:span, "In Stock #{stock}", class: "in-stock")
     else

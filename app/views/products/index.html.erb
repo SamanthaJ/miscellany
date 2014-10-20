@@ -2,14 +2,16 @@
   <div class="products-index">
     <div class="products-table">
     <h1>InventoryTracker</h1>
+    <%= link_to "Create a new product", '#', class: "links create-link" %>
+    <div class="hidden-form-container"><%= render partial: 'form' %></div>
     <table>
       <thead>
         <tr>
           <h2>All Products</h2>
-          <th>Image</th>
-          <th>Description</th>
-          <th>Price</th>
-          <th>Stock</th>
+          <th>Image <br/></th>
+          <th>Description <br/></th>
+          <th>Price <br/></th>
+          <th>Stock<br/></th>
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -18,27 +20,27 @@
         <% @products.each do |product| %>
           <tr>
             <td>
-              <span class="product-image"><%= image_tag "products/#{product.image_url}" %></span>
+              <span class="product-image"><%= image_tag product.image_url %></span>
             </td> 
             <td>
               <span class="product-title"><%= product.title %></span><% product.description %>
             </td>
             <td>
-              <span class="product-price"><%= print_price(product.price) %></span><br/><%= link_to "View Product", product_path(product), class: "links" %>
+              <span class="product-price"><%= print_price(product.price) %></span>
             </td>
             <td>
               <%= print_stock(product.stock) %>
             </td>
             <td>
-              <%= link_to "Delete Product", method: :destroy, class: "links" %>
+              <div class="links">
+                <%= link_to "View Product", product_path(product) %>
+                <%= link_to "Delete Product", method: :destroy %>
+              </div>
             </td>
           </tr>
         <% end %>
       </tbody>
     </table>
     </div>
-
-    <%= link_to "Create a new product", '#', class: "links create-link" %>
-    <div class="hidden-form-container"><%= render partial: 'form' %></div>
   </div>
 </div>
