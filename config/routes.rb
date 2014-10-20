@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
 
+  resources :products
+
   resources :tasks
 
   root 'static_pages#home'
