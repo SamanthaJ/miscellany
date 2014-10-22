@@ -12,13 +12,19 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.dataTables.min.js
 //= require_tree .
+
 $( document ).ready( function () {
   $(".create-link").click(function() {
     $(".hidden-form-container").fadeIn("slow")
     $(".create-link").hide()
 
   })
+
+  $(document).ready(function() {
+    $("#product-table").dataTable();
+} );
 
   }
 ) 

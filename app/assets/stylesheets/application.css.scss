@@ -95,18 +95,11 @@ p {
 
 .products-index {
   text-align: center;
-  .products-table {
-    h2 {
-      text-align: left;
-    }
-    th {
-      font-size: 35px;
-      color: gray;
-    }
-    td {
-      font-size: 20px;
-    }
-  }
+}
+
+#product-table {
+  font-size:140%;
+  color: gray;
 }
 
 

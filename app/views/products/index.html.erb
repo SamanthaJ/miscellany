@@ -4,27 +4,35 @@
     <h1>InventoryTracker</h1>
     <%= link_to "Create a new product", '#', class: "links create-link" %>
     <div class="hidden-form-container"><%= render partial: 'form' %></div>
-    <table>
+    <table id="product-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
       <thead>
         <tr>
           <h2>All Products</h2>
-          <th>Image <br/></th>
-          <th>Description <br/></th>
-          <th>Price <br/></th>
-          <th>Stock<br/></th>
-          <th colspan="3"></th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Stock</th>
+          <th>Actions</th>
         </tr>
       </thead>
+
+      <tfoot>
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Actions</th>
+      </tfoot>
 
       <tbody>
         <% @products.each do |product| %>
           <tr>
             <td>
-              <span class="product-image"><%= image_tag product.image_url %></span>
-            </td> 
-            <td>
-              <span class="product-title"><%= product.title %></span><% product.description %>
+              <span class="product-title"><%= product.title %></span>
             </td>
+            <td>
+              <span class="product-description"><%= product.description %></span>
             <td>
               <span class="product-price"><%= print_price(product.price) %></span>
             </td>
@@ -33,8 +41,8 @@
             </td>
             <td>
               <div class="links">
-                <%= link_to "View Product", product_path(product) %>
-                <%= link_to "Delete Product", method: :destroy %>
+                <%= link_to "| Edit |", edit_product_path(product)  %>
+                <%= link_to "| Delete |", product, method: :delete, data: { confirm: 'Are you sure?' } %>
               </div>
             </td>
           </tr>

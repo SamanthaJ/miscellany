@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   include PostsHelper
   
-  before_action :set_product, except: [:index, :new, :create,]
+  before_action :set_post, except: [:index, :new, :create,]
   before_action :authenticate_user!, except: [:index, :show]
  
  

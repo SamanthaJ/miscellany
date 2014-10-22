@@ -1,5 +1,5 @@
 <div class= "form">
-  <%= form_for (Product.new) do |f| %>
+  <%= form_for @product do |f| %>
     
     <%= f.label :title %><br/>
     <%= f.text_field :title %><br/>
@@ -8,13 +8,10 @@
     <%= f.text_area :description %><br/>
 
     <%= f.label :price %><br/>
-    <%= f.number_field :price %><br/>
+    <%= f.number_field :price, step: 'any' %><br/>
 
     <%= f.label :stock %><br/>
     <%= f.number_field :stock %><br/>
-
-    <%= f.label :image_url %><br/>
-    <%= f.url_field :image_url %><br/>
 
     <%= f.submit %><br/>
 
