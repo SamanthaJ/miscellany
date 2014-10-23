@@ -1,10 +1,9 @@
 <div class="container">
   <div class="products-index">
-    <div class="products-table">
     <h1>InventoryTracker</h1>
     <%= link_to "Create a new product", '#', class: "links create-link" %>
     <div class="hidden-form-container"><%= render partial: 'form' %></div>
-    <table id="product-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+    <table id="product-table" class="table table-striped table-bordered table-hover">
       <thead>
         <tr>
           <h2>All Products</h2>
@@ -23,6 +22,7 @@
             <th>Price</th>
             <th>Stock</th>
             <th>Actions</th>
+            </tr>
       </tfoot>
 
       <tbody>
@@ -49,6 +49,5 @@
         <% end %>
       </tbody>
     </table>
-    </div>
   </div>
 </div>

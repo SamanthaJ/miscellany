@@ -43,7 +43,6 @@ p {
  text-align: center; 
  font-size: 15px;
  font-weight: 100;
-
  a {
   font-size: 20px;
  }
@@ -100,6 +99,21 @@ p {
 #product-table {
   font-size:140%;
   color: gray;
+}
+
+#product-table_wrapper {
+  overflow: scroll;
+  width: 100%;
+}
+
+#task-table {
+  font-size:140%;
+  color: gray;
+}
+
+#task-table_wrapper {
+  overflow: scroll;
+  width: 100%;
 }
 
 
