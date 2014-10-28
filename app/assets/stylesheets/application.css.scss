@@ -1,5 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "jquery-ui";
+
 
 * {
   font-weight: 100;
@@ -8,6 +10,7 @@
 
 body {
   padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 h1 {
@@ -114,6 +117,18 @@ p {
 #task-table_wrapper {
   overflow: scroll;
   width: 100%;
+}
+
+#amount {
+  border: 0; 
+  color: #f6931f; 
+  font-weight:bold;
+}
+
+#duration {
+  border: 0; 
+  color: #f6931f; 
+  font-weight:bold;
 }
 
 

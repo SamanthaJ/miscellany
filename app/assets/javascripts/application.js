@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery.dataTables.min.js
 //= require_tree .
+//= require jquery-ui
 
 $( document ).ready( function () {
   $(".create-link").click(function() {
@@ -22,9 +23,36 @@ $( document ).ready( function () {
 
   })
 
-  $(document).ready(function() {
-    $("#product-table").dataTable();
-} );
+  $("#product-table").dataTable();
 
-  }
-) 
+
+  $( "#slider-range-max1" ).slider({
+    range: "max",
+    min: 1,
+    max: 60,
+    value: 20,
+    slide: function( event, ui ) {
+      $( "#duration" ).val( ui.value );
+      // alert("Hey you asshole you moved me and my value is:" + ui.value);
+    }
+  });
+
+  $( "#slider-range-max2" ).slider({
+    range: "max",
+    min: 1,
+    max: 10,
+    value: 3,
+    slide: function( event, ui ) {
+      $( "#amount" ).val( ui.value );
+    }
+  });
+  
+
+
+  // $( document ).ready( function () {
+  //   $(".show-post-link").click(function() {
+  //     $(".hidden-form-container").fadeIn("slow")
+  // })
+
+}) 
+

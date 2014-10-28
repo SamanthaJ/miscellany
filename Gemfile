@@ -29,6 +29,10 @@ gem 'spring',        group: :development
 # Flexible authentication solution for Rails with Warden
 gem 'devise', '~> 3.4.0'
 
+# This gem packages the jQuery UI assets (JavaScripts, stylesheets, and images) for the Rails asset pipeline, so you never have to download a custom package through the web interface again.
+
+gem 'jquery-ui-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

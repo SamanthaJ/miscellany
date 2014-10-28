@@ -7,11 +7,14 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    @tasks = Task.all
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @tasks, notice: 'Post was successfully created.' }  
+        format.html { redirect_to tasks_path, notice: 'Post was successfully created.' }  
+        format.json { render action: 'index', status: :created, location: @task }
       else
         format.html { render action: 'new' } 
+        format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -21,11 +24,13 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    @task = Task.find(params[:id])
     @task.destroy
 
     flash.notice = "'#{@task.task_type}' has been Deleted!"
 
     redirect_to tasks_path
+
   end
 
 
