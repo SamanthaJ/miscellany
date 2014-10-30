@@ -25,6 +25,8 @@ $( document ).ready( function () {
 
   $("#product-table").dataTable();
 
+  $("#task-table").dataTable();
+
 
   $( "#slider-range-max1" ).slider({
     range: "max",
@@ -46,6 +48,11 @@ $( document ).ready( function () {
       $( "#amount" ).val( ui.value );
     }
   });
+
+
+
+
+
   
 
 

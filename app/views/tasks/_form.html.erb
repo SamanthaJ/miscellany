@@ -12,6 +12,10 @@
 
     <%= f.label :priority %><br/>
     <%= f.text_field :priority, id: "amount", readonly: true %><br/>
+
+    <%= f.hidden_field :complete, value: false %>
+
+    <%= f.hidden_field :optimal, value: false %>
     
     <div id="slider-range-max2"></div><br/>
 

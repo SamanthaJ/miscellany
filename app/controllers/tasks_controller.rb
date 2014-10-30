@@ -2,8 +2,12 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.all
+    @tasks_complete = Task.where(complete: false)
+    @tasks_complete = Task.where(complete: true)
+
 
   end
+
 
   def create
     @task = Task.new(task_params)
@@ -17,6 +21,16 @@ class TasksController < ApplicationController
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def update
+    @task = Task.find(params[:id])
+    @task.update(task_params)
+
+
+    flash.notice = "'#{@task.task_type}' has been Updated!"
+
+    redirect_to tasks_path
   end
 
   def show

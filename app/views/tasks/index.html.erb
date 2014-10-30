@@ -7,6 +7,7 @@
           <thead>
             <tr>
               <h2>All Tasks</h2>
+              <th>Status</th>
               <th>Task</th>
               <th>Priority</th>
               <th>Duration (in minutes)</th>
@@ -16,6 +17,12 @@
           <tbody>
             <% @tasks.each do |task| %>
               <tr>
+                <td>
+                  <%= form_for task do |f| %>
+                    <%= f.check_box :complete %>
+                    <%= f.submit %>
+                  <% end %>
+                    </td>
                 <td><%= task.task_type %></td>
                 <td><%= task.priority %></td>
                 <td><%= task.duration_in_minutes %></td>
@@ -31,6 +38,8 @@
         </table>
       </div>
 </div>
+
+
 
 
 
