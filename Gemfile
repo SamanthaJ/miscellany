@@ -34,9 +34,13 @@ gem 'devise', '~> 3.4.0'
 gem 'jquery-ui-rails'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.0.0'
+  gem 'rspec-rails'
   gem 'capybara'
 end
+
+# # factory_girl is a fixtures replacement with a straightforward definition syntax, support for multiple build strategies (saved instances, unsaved instances, attribute hashes, and stubbed objects), 
+# # and support for multiple factories for the same class (user, admin_user, and so on), including factory inheritance.
+# gem 'factory_girl_rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

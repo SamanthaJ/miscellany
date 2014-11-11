@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
   include PostsHelper
-  
-  before_action :set_post, except: [:index, :new, :create,]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_post, except: [:index, :new, :create, :update]
+  
  
  
   def index
@@ -23,7 +23,7 @@ class PostsController < ApplicationController
 
   
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.new(post_params)
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -49,11 +49,14 @@ class PostsController < ApplicationController
 
   
   def update
-    @post.update(post_params)
-
-    flash.notice = "'#{@post.title}' has been Updated!"
-
-    redirect_to post_path(@post)
+    if current_user == @post.user
+      @post.update(post_params)
+      flash.notice = "'#{@post.title}' has been Updated!"
+      redirect_to post_path(@post)
+    else
+      flash.notice = "You cannot edit other authors' posts!"
+      redirect_to posts_path
+    end
   end
 
   private

@@ -1,5 +1,7 @@
 <div class="form"> 
-  <%= form_for (Post.new) do |f| %>
+  <%= form_for @post do |f| %>
+    <%= f.label :author, "Posted by:" %><br/>
+    <%= f.text_field :author %><br/>
     <%= f.label :title %><br>
     <%= f.text_field :title %><br/>
    

@@ -49,17 +49,10 @@ $( document ).ready( function () {
     }
   });
 
-
-
-
-
-  
-
-
-  // $( document ).ready( function () {
-  //   $(".show-post-link").click(function() {
-  //     $(".hidden-form-container").fadeIn("slow")
-  // })
+  $(".complete-check-box").change(function() {
+    var form = $(this).closest('form')
+    form.submit();
+  })
 
 }) 
 

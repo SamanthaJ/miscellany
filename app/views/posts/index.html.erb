@@ -5,7 +5,10 @@
         <h1 class="title">Blogger</h1>  
         <h1>Blog Entries</h1>
         <% @posts.each do |post| %>
-          <p id="post-links"><%= link_to post.title, post_path(post) %></p> 
+          <p id="post-links">
+            <%= link_to post.title, post_path(post) %><br/>
+            <small>Posted by: <%= post.user.email %></small>
+          </p> 
         <% end %>
         <br/>  
          <%= link_to "Create a blog post", '#', class: "links create-link" %>

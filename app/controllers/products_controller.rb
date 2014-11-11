@@ -1,13 +1,12 @@
 class ProductsController < ApplicationController
   include ProductsHelper
-  
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!
   before_action :set_product, except: [:index, :new, :create]
  
 
   def index
-    @products = Product.all
-    @product = Product.new
+    @products = current_user.products.all
+    @product = current_user.products.new
   end
 
 
@@ -25,7 +24,7 @@ class ProductsController < ApplicationController
 
   
   def create
-    @product = Product.new(product_params)
+    @product = current_user.products.new(product_params)
 
     respond_to do |format|
       if @product.save

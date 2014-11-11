@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
-
+  before_action :authenticate_user!
   def index
-    @tasks = Task.all
+    @tasks = Task.where(user_id: current_user.id) if current_user
     @tasks_complete = Task.where(complete: false)
     @tasks_complete = Task.where(complete: true)
 
@@ -10,8 +10,8 @@ class TasksController < ApplicationController
 
 
   def create
-    @task = Task.new(task_params)
-    @tasks = Task.all
+    @task = current_user.tasks.new(task_params)
+    @tasks = current_user.tasks.all
     respond_to do |format|
       if @task.save
         format.html { redirect_to tasks_path, notice: 'Post was successfully created.' }  

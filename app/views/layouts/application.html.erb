@@ -25,6 +25,8 @@
     </form>
       <% if user_signed_in? %>
       <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "navbar-text navbar-right" %>
+      <% else %>
+      <%= link_to "Sign in", new_user_session_path, class: "navbar-text navbar-right" %>
       <% end %>
     </div>
 </nav>

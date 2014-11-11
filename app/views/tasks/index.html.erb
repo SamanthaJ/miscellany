@@ -19,10 +19,9 @@
               <tr>
                 <td>
                   <%= form_for task do |f| %>
-                    <%= f.check_box :complete %>
-                    <%= f.submit %>
+                    <%= f.check_box :complete, class: "complete-check-box" %>
                   <% end %>
-                    </td>
+                </td>
                 <td><%= task.task_type %></td>
                 <td><%= task.priority %></td>
                 <td><%= task.duration_in_minutes %></td>
