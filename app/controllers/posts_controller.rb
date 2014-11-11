@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   include PostsHelper
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_post, except: [:index, :new, :create, :update]
+  before_action :set_post, except: [:index, :new, :create]
   
  
  
@@ -42,19 +42,14 @@ class PostsController < ApplicationController
 
     redirect_to posts_path
   end
-
-  
-  def edit
-  end
-
   
   def update
     if current_user == @post.user
       @post.update(post_params)
-      flash.notice = "'#{@post.title}' has been Updated!"
+      flash[:success] = "'#{@post.title}' has been Updated!"
       redirect_to post_path(@post)
     else
-      flash.notice = "You cannot edit other authors' posts!"
+      flash[:error] = "You cannot edit other authors' posts!"
       redirect_to posts_path
     end
   end
@@ -68,8 +63,6 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:author, :title, :body)
   end
-
-
 end
 
 

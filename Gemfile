@@ -33,6 +33,8 @@ gem 'devise', '~> 3.4.0'
 
 gem 'jquery-ui-rails'
 
+gem 'pry-rails'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'

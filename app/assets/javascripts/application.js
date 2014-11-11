@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery.dataTables.min.js
 //= require_tree .
+//= require bootstrap-sprockets
 //= require jquery-ui
 
 $( document ).ready( function () {
