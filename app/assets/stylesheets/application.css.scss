@@ -13,21 +13,16 @@ body {
   padding-bottom: 60px;
 }
 
-h1 {
+h1, h2, h3, h4, p {
   font-weight: 100;
-  font-size: 40px;
   text-align: center;  
   color: gray;
 }
 
-h2 {
-    font-weight: 100;
-    color: gray;
-}
+  
+h4 {
 
-h3 {
-    font-weight: 100;
-    color: gray;
+  font-size: 12px;
 }
 
 p {
@@ -46,9 +41,14 @@ p {
  text-align: center; 
  font-size: 15px;
  font-weight: 100;
- a {
+  a {
   font-size: 20px;
- }
+  }
+}
+
+.posted-by {
+  font-size: 18px;
+  color: gray;
 }
 
 .show-post {
@@ -63,6 +63,10 @@ p {
 
 .links {
   font-size: 20px;
+}
+
+.post-links {
+
 }
 
 .comments {
@@ -81,18 +85,20 @@ p {
 }
 
 .tasks-index {
-  text-align: center;
+  table-layout:  center;
+  font-size: 140%;
+  color: gray;
 }
 
 .product-show {
   font-size: 20px;
   text-align: left;
-    h2 {
-      text-align: left;
-    }
-    .links {
-      text-align: left;
-    }
+  h2 {
+    text-align: left;
+  }
+  .links {
+    text-align: left;
+  }
 }
 
 .products-index {
@@ -109,15 +115,11 @@ p {
   width: 100%;
 }
 
-#task-table {
-  font-size:140%;
-  color: gray;
-}
 
-#task-table_wrapper {
-  overflow: scroll;
-  width: 100%;
-}
+// #task-table_wrapper {
+//   overflow: scroll;
+//   width: 100%;
+// }
 
 #amount {
   border: 0; 
@@ -134,5 +136,8 @@ p {
 .glyphicon-check {
   display: none;
 }
+
+
+
 
 

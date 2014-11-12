@@ -16,23 +16,23 @@
       </thead>
 
       <tfoot>
-          <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Stock</th>
-            <th>Actions</th>
-            </tr>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Stock</th>
+          <th>Actions</th>
+        </tr>
       </tfoot>
 
       <tbody>
         <% @products.each do |product| %>
-          <tr>
-            <td>
-              <span class="product-title"><%= product.title %></span>
-            </td>
-            <td>
-              <span class="product-description"><%= product.description %></span>
+        <tr>
+          <td>
+            <span class="product-title"><%= product.title %></span>
+          </td>
+          <td>
+            <span class="product-description"><%= product.description %></span>
             <td>
               <span class="product-price"><%= print_price(product.price) %></span>
             </td>
@@ -46,8 +46,8 @@
               </div>
             </td>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>

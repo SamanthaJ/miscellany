@@ -1,41 +1,42 @@
 <div class="container">
-      <div class="tasks-index">
-        <h1 class="title">TaskManager<br/><span>prioritze your todo list</span></h1>
-        <%= link_to "Create a new task", '#', class: "links create-link" %>
-        <div class="hidden-form-container"><%= render partial: 'tasks/form' %></div>
-        <table id="task-table" class="table table-striped table-bordered table-hover">
-          <thead>
-            <tr>
-              <h2>All Tasks</h2>
-              <th>Status</th>
-              <th>Task</th>
-              <th>Priority</th>
-              <th>Duration (in minutes)</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @tasks.each do |task| %>
-              <tr>
-                <td>
-                  <%= form_for task do |f| %>
-                    <%= f.check_box :complete, class: "complete-check-box" %>
-                  <% end %>
-                </td>
-                <td><%= task.task_type %></td>
-                <td><%= task.priority %></td>
-                <td><%= task.duration_in_minutes %></td>
-                <td>
-                  <div class="links">
-                    <%= link_to "| Edit |", edit_task_path(task)  %>
-                    <%= link_to "| Delete |", task, method: :delete, data: { confirm: 'Are you sure?' } %>
-                  </div>
-                </td>
-              </tr>
+  <div class="tasks-index">
+    <h1 class="title">TaskManager<br/><span>prioritze your todo list</span></h1>
+    <%= link_to "Create a new task", '#', class: "links create-link" %>
+    <div class="hidden-form-container"><%= render partial: 'tasks/form' %></div>
+    <table style="margin: auto;">
+      <thead>
+        <tr>
+          <h2>All Tasks</h2>
+          <th>Status</th>
+          <th>Task</th>
+          <th>Priority</th>
+          <th>Duration (in minutes)</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <br/>
+      <tbody>
+        <% @tasks.each do |task| %>
+        <tr>
+          <td>
+            <%= form_for task do |f| %>
+            <%= f.check_box :complete, class: "complete-check-box" %>
             <% end %>
-          </tbody>
-        </table>
-      </div>
+          </td>
+          <td><%= task.task_type %></td>
+          <td><%= task.priority %></td>
+          <td><%= task.duration_in_minutes %></td>
+          <td>
+            <div class="links">
+              <%= link_to "Edit", edit_task_path(task)  %>
+              <%= link_to "Delete", task, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 

@@ -1,19 +1,19 @@
 <div class= "form">
   <%= form_for @product do |f| %>
-    
-    <%= f.label :title %><br/>
-    <%= f.text_field :title %><br/>
+  
+  <%= f.label :title %><br/>
+  <%= f.text_field :title %><br/>
 
-    <%= f.label :description %><br/>
-    <%= f.text_area :description %><br/>
+  <%= f.label :description %><br/>
+  <%= f.text_area :description %><br/>
 
-    <%= f.label :price %><br/>
-    <%= f.number_field :price, step: 'any' %><br/>
+  <%= f.label :price %><br/>
+  <%= f.number_field :price, step: 'any' %><br/>
 
-    <%= f.label :stock %><br/>
-    <%= f.number_field :stock %><br/>
+  <%= f.label :stock %><br/>
+  <%= f.number_field :stock %><br/>
 
-    <%= f.submit %><br/>
+  <%= f.submit %><br/>
 
   <% end %>
 </div>
