@@ -1,54 +1,57 @@
 require 'rails_helper'
 
 feature 'User management' do 
-  scenario "with valid email and password" do
-    sign_up_with 'valid@example.com', 'password'
+  before :each do 
+    visit_sign_in_page
+  end
+  
+  scenario 'user signs up with valid info' do
+    click_link 'Sign up'
+    fill_in 'Email', with: 'email@example.com'
+    fill_in 'Password', with: 'password'
+    fill_in 'Password confirmation', with: 'password'
+    click_button 'Sign up'
     
-    expect(page).to have_content('Sign Out')
+    expect(page).to have_content('Welcome! You have signed up successfully.')
+  end
+
+  scenario 'logs in properly' do
+    log_in
+    
+    expect(page).to have_content ('Signed in successfully.')
+  end
+
+  scenario "doesn't allow log in with invalid info" do   
+    fill_in 'Email', with: 'test@example.com'
+    fill_in 'Password', with: ''
+    click_button 'Log in'
+    
+    expect(page).to have_content('Invalid email or password.')
   end 
 
-  scenario "with invalid email" do 
-    sign_up_with 'invalid_email', 'password'
-    
-    expect(page).to have_content('Sign In')
-  end
+  scenario "logs out properly" do 
+    log_in
+    click_link 'Sign out'
 
-  scenario "with blank password" do 
-    sign_up_with 'valid@example.com', ''
-    
-    expect(page).to have_content('Sign In')
+    expect(page).to have_content('Signed out successfully.')
   end
 end
 
-  def sign_up_with(email, password)
-    vist root_path
-    click_link 'Sign in'
-    fill_in 'Email', with: 'valid@example.com'
-    fill_in 'Password', with: 'password'
-    click_button 'Log in'
+def visit_sign_in_page
+  visit root_path
+  click_link 'Sign in'
+end
+
+def log_in
+  @user = build(:user)
+  @user.save!
+  fill_in 'Email', with: @user.email
+  fill_in 'Password', with: @user.password
+  click_button 'Log in'
 end
 
 
 
 
 
-# the build up!!!
-# describe "Blog" do
-#   before :each do
-#     sign_in_with_wrong_info
-#   end
-
-# the 
-#   it 'should not log in' do
-#     page.should have_content "Forgot your password?"
-#   end
-# end
-
-# def sign_in_with_wrong_info
-#   visit root_path
-#   click_link 'Sign in'
-#   fill_in "user_email", with: "myemail@email.com"
-#   fill_in "user_password", with: "password"
-#   click_button "Log in"
-# end
 

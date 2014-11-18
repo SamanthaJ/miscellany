@@ -5,9 +5,8 @@ describe Comment do
     expect(build(:comment)).to be_valid
   end
   it "is valid with a user_name and body" do 
-    comment = Comment.new(
-      user_name: "Yan",
-      body: "Comment number 1")
+    comment = build(:comment)
+    
     expect(comment).to be_valid
   end
   

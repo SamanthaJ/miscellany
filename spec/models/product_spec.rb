@@ -5,15 +5,6 @@ describe Product do
     expect(build(:product)).to be_valid
   end
 
-  # it "is valid with a title, price, description, and stock" do
-  #   product = Product.new(
-  #     title: "RDLF"
-  #     price: "$3.00"
-  #     description: "small cigar"
-  #     stock: "2,500")
-  #   expect(product).to be_valid
-  # end
-
   it "is invalid without a title" do 
     product = build(:product, title: nil)
     product.valid?
