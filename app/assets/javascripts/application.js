@@ -17,6 +17,7 @@
 //= require bootstrap-sprockets
 //= require jquery-ui
 
+
 $( document ).ready( function () {
   $(".create-link").click(function() {
     $(".hidden-form-container").fadeIn("slow")
@@ -54,6 +55,7 @@ $( document ).ready( function () {
     var form = $(this).closest('form')
     form.submit();
   })
+
 
 }) 
 

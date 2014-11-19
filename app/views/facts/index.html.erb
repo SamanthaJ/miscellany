@@ -1,1 +1,33 @@
-<h1>Welcome to FactFlipper!</h1>
+<h1 class="title">
+  FactFlipper<br/><span class="title-description">{ A fun alternative to the standard flash card }</span>
+</h1>
+<%= link_to "Create a flip card!", '#', class: "links create-link" %>
+<div class="hidden-form-container">
+  <%= render partial: 'form' %>
+</div><br/><br/>  
+<h2>Questions</h2>
+  <% @facts.each do |fact| %>
+  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">  
+    <%= fact.question %>
+  </button>
+  <br/>
+  <br/>
+  <br/>
+<!-- Modal -->
+  <br/>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h3 class="modal-title" id="myModalLabel"><%= fact.question %></h3>
+      </div>
+      <h3 class="modal-body"><%= fact.answer %><br/></h3>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
