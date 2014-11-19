@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
 
+  resources :facts
+
   resources :products
 
   resources :tasks
