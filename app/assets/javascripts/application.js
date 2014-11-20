@@ -27,7 +27,7 @@ $( document ).ready( function () {
 
   $("#product-table").dataTable();
 
-  // $("#task-table").dataTable();
+  $("#task-table").dataTable();
 
 
   $( "#slider-range-max1" ).slider({
