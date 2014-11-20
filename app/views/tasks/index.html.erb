@@ -23,23 +23,22 @@
             <%= form_for task do |f| %>
             <%= f.check_box :complete, class: "complete-check-box" %>
 
-                  <% end %>
-                </td>
-                <td><%= task.task_type %></td>
-                <td><%= task.priority %></td>
-                <td><%= task.duration_in_minutes %></td>
-                <td>
-                  <div class="links">
-                    <%= link_to "| Edit |", edit_task_path(task)  %>
-                    <%= link_to "| Delete |", task, method: :delete, data: { confirm: 'Are you sure?' } %>
-                  </div>
-                </td>
-              </tr>
-
             <% end %>
-          </tbody>
-        </table>
-      </div>
+          </td>
+          <td><%= task.task_type %></td>
+          <td><%= task.priority %></td>
+          <td><%= task.duration_in_minutes %></td>
+          <td>
+            <div class="links">
+              <%= link_to "| Edit |", edit_task_path(task)  %>
+              <%= link_to "| Delete |", task, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 
