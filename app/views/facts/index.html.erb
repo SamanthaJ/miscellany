@@ -6,17 +6,17 @@
   <%= render partial: 'form' %>
 </div><br/><br/>  
 <h2>Questions</h2>
-  <% @facts.each do |fact| %>
-  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">  
-    <%= fact.question %>
-  </button>
-  <br/>
-  <br/>
-  <br/>
+<% @facts.each_with_index do |fact, i| %>
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal<%=i%>">  
+  <%= fact.question %>
+</button>
+<br/>
+<br/>
+<br/>
 <!-- Modal -->
-  <br/>
+<br/>
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="myModal<%=i%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
