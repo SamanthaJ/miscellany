@@ -9,11 +9,12 @@
 </div>
 <div class="row">
   <div class="col-md-offset-4 col-md-4 comments">
-    <h3><%= pluralize @post.comments.count, "Comment" %></h3>
+    <h3><%= pluralize @post.comments.count, "Comment" %></h3><br/>
     <% @comments.each do |comment| %>
-    <h2><%= comment.user_name %></h2>
-    <p><%= comment.body %></p>
-    <h3>Posted <%= distance_of_time_in_words(comment.post.created_at, comment.created_at) %> later</h3>
+    <p><%= comment.body %></p><br/>
+    <div class="posted-by">
+      Posted: <%= time_ago_in_words(comment.created_at) %> ago</br>
+      by: <%= comment.user_name%></br>
     <% end %>
     <br/>
     <%= render partial: 'comments/form' %>

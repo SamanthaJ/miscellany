@@ -1,8 +1,8 @@
 <div class="form"> 
 
-  <%= form_for (Task.new) do |f| %>
-    <%= f.label :task_type, "Add a task" %><br>
-    <%= f.text_field :task_type %><br/>
+  <%= form_for (Task.new) do |f| %>     
+
+    <%= f.text_field :task_type, placeholder: "add a task" %><br/>
     <br/>
 
     <%= f.label :duration_in_minutes %><br/>

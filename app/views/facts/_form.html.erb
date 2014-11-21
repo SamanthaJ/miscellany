@@ -1,11 +1,10 @@
 <div class="form">
-    <%= form_for @fact do |f| %>  
-      <%= f.label :question, "Question" %><br/>
-      <%= f.text_field :question %><br/>
+    <%= form_for @fact do |f| %>   
       
-      <%= f.label :answer, "Answer" %><br/>
-      <%= f.text_area :answer %><br/>
+      <%= f.text_field :question, placeholder: "question" %><br/><br/>
+      
+      <%= f.text_area :answer, placeholder: "answer" %><br/>
 
       <%= f.submit 'Submit' %>
     <% end %>
-</div>
+</div>  
