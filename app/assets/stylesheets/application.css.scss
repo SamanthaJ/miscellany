@@ -15,10 +15,8 @@ body {
 
 h1, h2, h3, h4, p {
   font-weight: 100;
-  text-align: center;  
   color: gray;
 }
-
   
 h4 {
 
@@ -29,28 +27,22 @@ p {
   font-size: 25px;
 }
 
-
-
 .navbar-brand {
   font-size: 30px;
 }
 
 .title {
   padding-bottom: 60px;
+  text-align: center;
 }
 
 .title-description {
   font-size: 20px;
 }
+
 .form {
- text-align: center; 
  font-size: 15px;
  font-weight: 100;
- 
-  a {
-  font-size: 20px;
-  }
-
 }
 
 .posted-by {
@@ -59,32 +51,18 @@ p {
 }
 
 .show-post {
-  text-align: center;
+  // text-align: center;
   font-size: 25px;
   padding-bottom: 150px;
-}
-
-.posts-index {
-  text-align: center;
 }
 
 .links {
   font-size: 20px;
 }
 
-.post-links {
-
-}
-
 .comments {
   font-size: 25px;
-  text-align: center;
   font-weight: 100;
-  border-style: solid;
-  border-width: thin;
-  .time-posted {
-    font-style: italic;
-  }
 }
 
 .hidden-form-container {
@@ -92,7 +70,6 @@ p {
 }
 
 .tasks-index {
-  table-layout:  center;
   font-size: 140%;
   color: gray;
 }
@@ -108,10 +85,6 @@ p {
   }
 }
 
-.products-index {
-  text-align: center;
-}
-
 #product-table {
   font-size:140%;
   color: gray;
@@ -121,7 +94,6 @@ p {
   overflow: scroll;
   width: 100%;
 }
-
 
 #amount {
   border: 0; 
@@ -138,5 +110,8 @@ p {
 .glyphicon-check {
   display: none;
 }
+
+
+
 
 

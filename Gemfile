@@ -35,6 +35,8 @@ gem 'jquery-ui-rails'
 
 gem 'pry-rails'
 
+gem 'will_paginate-bootstrap'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
