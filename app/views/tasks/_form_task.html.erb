@@ -1,0 +1,14 @@
+<div class="form"> 
+  <%= form_for (Task.new) do |f| %>     
+    <%= f.text_field :task_type, placeholder: "add a task" %><br/><br/>
+    <%= f.label :duration_in_minutes %><br/>
+    <%= f.text_field :duration_in_minutes, id: "duration", readonly: true %><br/>
+    <div id="slider-range-max1"></div><br/>
+      <%= f.label :priority %><br/>
+      <%= f.text_field :priority, id: "amount", readonly: true %><br/>
+      <%= f.hidden_field :complete, value: false %>
+      <%= f.hidden_field :optimal, value: false %>
+    <div id="slider-range-max2"></div><br/>
+    <%= f.submit %>
+  <% end %> 
+</div>

@@ -1,0 +1,6 @@
+<div class="form"> 
+  <%= form_for (Task.new) do |f| %>  
+    <%= f.text_field :title, placeholder: "name your todo list" %><br/><br/>   
+    <%= f.submit %>
+  <% end %> 
+</div>
