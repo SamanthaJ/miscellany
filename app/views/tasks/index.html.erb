@@ -1,43 +1,14 @@
 <div class="container">
 
   <div class="tasks-index">
-    <h1 class="title">TaskManager<br/><span class="title-description">{ prioritze your todo list }</span></h1>
-    <%= link_to "Create a new task", '#', class: "links create-link" %>
+    <h1 class="title">TaskManager<br/><span class="title-description">{ prioritze your todo lists }</span></h1>
+    <%= link_to "Create a new todo list", '#', class: "links create-link" %>
     <div class="hidden-form-container"><%= render partial: 'tasks/form' %></div>
-    <table style="margin: auto;">
-      <thead>
-        <tr>
-          <h2>All Tasks</h2>
-          <th>Status</th>
-          <th>Task</th>
-          <th>Priority</th>
-          <th>Duration (in minutes)</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <br/>
-      <tbody>
-        <% @tasks.each do |task| %>
-        <tr>
-          <td>
-            <%= form_for task do |f| %>
-            <%= f.check_box :complete, class: "complete-check-box" %>
-
-            <% end %>
-          </td>
-          <td><%= task.task_type %></td>
-          <td><%= task.priority %></td>
-          <td><%= task.duration_in_minutes %></td>
-          <td>
-            <div class="links">
-              <%= link_to "| Edit |", edit_task_path(task)  %>
-              <%= link_to "| Delete |", task, method: :delete, data: { confirm: 'Are you sure?' } %>
-            </div>
-          </td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <br/>
+    <br/>
+    <% @tasks.each do |task| %>
+      <%= link_to task.task_type, task_path(task) %><br/>
+    <% end %>
   </div>
 </div>
 

@@ -7,6 +7,22 @@
   font-weight: 100;
   text-align: center;
 }
+table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+tr {
+   border-bottom: transparent;
+
+}
+
+th {
+    height: 25px;
+    text-align: center;
+    font-size: 30px;
+}
 
 body {
   padding-top: 60px;
@@ -34,6 +50,7 @@ p {
 .title {
   padding-bottom: 60px;
   text-align: center;
+
 }
 
 .title-description {

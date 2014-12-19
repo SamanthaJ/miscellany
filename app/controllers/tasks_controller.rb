@@ -1,11 +1,10 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
+  
   def index
     @tasks = Task.where(user_id: current_user.id) if current_user
     @tasks_complete = Task.where(complete: false)
     @tasks_complete = Task.where(complete: true)
-
-
   end
 
 
@@ -27,11 +26,15 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.update(task_params)
 
-
     flash.notice = "'#{@task.task_type}' has been Updated!"
 
     redirect_to tasks_path
   end
+
+  def edit
+   @task = Task.find(params[:id])
+  end
+
 
   def show
     @task = Task.find(params[:id])
@@ -48,7 +51,7 @@ class TasksController < ApplicationController
   end
 
 
-  private
+private
 
   def task_params
     params.require(:task).permit(:task_type, :priority, :duration_in_minutes, :complete, :optimal, :user_id)
