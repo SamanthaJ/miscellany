@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :products
   has_many :tasks
   has_many :facts
+  has_many :lists
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

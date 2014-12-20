@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
-  resources :lists
+  resources :lists do
+    resources :tasks
+  end
 
   resources :posts do 
     resources :comments  
@@ -9,8 +11,6 @@ Rails.application.routes.draw do
   resources :facts
 
   resources :products
-
-  resources :tasks
 
   root 'static_pages#home'
   
