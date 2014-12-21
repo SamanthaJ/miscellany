@@ -15,8 +15,8 @@ class FactsController < ApplicationController
     @fact = current_user.facts.new(fact_params)
     respond_to do |format|
       if @fact.save
-        format.html { redirect_to @fact, notice: 'flip card was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @fact }
+        format.html { redirect_to facts_path, notice: 'flip card was successfully created.' }
+        format.json { render action: 'index', status: :created, location: @fact }
       else
         format.html { render action: 'new' }
         format.json { render json: @fact.errors, status: :unprocessable_entity }

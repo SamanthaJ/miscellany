@@ -56,21 +56,11 @@ $( document ).ready( function () {
   });
 
 
+  $("#text-area").keyup(function(){
+    var wordCount = $(this).val().length
+    $('#word-count').text(wordCount)
+  })
 
-
-
-
-  // $(".flippable").click(function() {
-  //   var that = this;
-  //   $(this).flip({
-  //     direction:'rl',
-  //     color: 'beige',
-  //     content: $(this).data('answer'),
-  //     onEnd: function() {
-  //       $(that).attr('class', 'flipped jumbotron')
-  //     }
-  //   });
-  // });
 
 
 }) 

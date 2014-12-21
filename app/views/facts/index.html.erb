@@ -1,24 +1,22 @@
+<div class= "container">
 <h1 class="title">  
   FactFlipper<br/><span class="title-description">{ A fun alternative to the standard flash card }</span>
 </h1>
 <%= link_to "Create a flip card!", '#', class: "links create-link" %>
 <div class="hidden-form-container">
   <%= render partial: 'form' %>
-</div><br/><br/>  
-<h2>Questions</h2>
-  
-
-
+</div> 
 <ul class="tips">
   <% @facts.each_with_index do |fact, i| %>
-    <li href="<%= "#tip#{i}" %>">
-      <div class="tc_front"></div>
-      <div class="tc_back"></div>
-      <div id="<%= "tip#{i}" %>" class="tip">
-        <div class="tc_front"><%= fact.question %></div>
-        <div class="tc_back"><%= fact.answer %></div>
-      </div>
-    </li>
-   <% end %>
+  <li href="<%= "#tip#{i}" %>">
+    <div class="tc_front"></div>
+    <div class="tc_back"></div>
+    <div id="<%= "tip#{i}" %>" class="tip">
+      <div class="tc_front"><%= fact.question %></div>
+      <div class="tc_back"><%= fact.answer %></div>
+    </div>
+  </li>
+  <% end %>
 </ul>
+</div>
 

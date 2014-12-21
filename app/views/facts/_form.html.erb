@@ -1,10 +1,8 @@
 <div class="form">
-    <%= form_for @fact do |f| %>   
-      
-      <%= f.text_field :question, placeholder: "question"%><br/><br/>
-      
-      <%= f.text_area :answer, placeholder: "answer", maxlength: '500' %><br/>
-
-      <%= f.submit 'Submit' %>
-    <% end %>
+  <%= form_for @fact do |f| %>   
+  <div>character count :<span id="word-count">0</span>, 350 max</div>
+    <%= f.text_area :question, placeholder: "question", maximum: '350', cols: '100', rows: '10', id: 'text-area' %><br/><br/>
+    <%= f.text_area :answer, placeholder: "answer", cols: '150', rows: '20' %><br/>
+    <%= f.submit 'Submit' %>
+  <% end %>
 </div>  

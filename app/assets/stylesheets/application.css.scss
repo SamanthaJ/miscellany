@@ -40,7 +40,7 @@ h1, h2, h3, h4, p {
   
 h4 {
 
-  font-size: 12px;
+  font-size: 18px;
 }
 
 p {
@@ -53,7 +53,7 @@ p {
 
 .title {
   padding-bottom: 60px;
-  // text-align: center;
+  text-align: center;
 
 }
 
@@ -132,13 +132,8 @@ p {
   display: none;
 }
 
-.flippable {
-  background-color: white;
-}
-
-.jumbotron {
-  background-color: beige;
-  text-align: center;  
+.tips {
+  padding-top: 10%;
 }
 
 .tip {
@@ -166,6 +161,9 @@ p {
   overflow: scroll;
 }
 
+.create-link {
+  text-align: center;
+}
 
 
 

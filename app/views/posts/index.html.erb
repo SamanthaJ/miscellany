@@ -1,20 +1,18 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-6">
-      <div class="posts-index">
-        <h1 class="title">Blogger<br/><span class="title-description">{ a simple, traditional blog }</span></h1>  
-        <%= link_to "Create a blog post", '#', class: "links create-link" %>
-        <div class="hidden-form-container"><%= render partial: 'form' %></div>
-        <h2>
-          <% @posts.each do |post| %><br/>
-          <%= link_to post.title, post_path(post) %><br/>
-          <div class="posted-by">
-            Posted: <%= time_ago_in_words(post.created_at) %> ago</br>
-            by: <%= post.user.email %></br>
-          </div>  
-          <% end %>
-        </h2><br/> 
-      </div>
-    </div>
+  <div class="posts-index">
+    <h1 class="title">Blogger<br/><span class="title-description">{ a simple, traditional blog }</span></h1>  
+    <%= link_to "Create a blog post", '#', class: "links create-link" %>
+    <div class="hidden-form-container"><%= render partial: 'form' %></div>
+      <% @posts.each do |post| %><br/>
+      <h2><%= link_to post.title, post_path(post) %></h2>
+      <h4><%= truncate(post.body, length: 200) { link_to "Continue", post_path(post) }%></h4><br/>
+        <div class="posted-by">
+          Posted: <%= time_ago_in_words(post.created_at) %> ago</br>
+          by: <%= post.user.email %></br>
+        </div>  
+      <% end %>
+    </h2><br/> 
   </div>
+</div>
+</div>
 </div>
