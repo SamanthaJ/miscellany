@@ -5,6 +5,8 @@
     <div class="hidden-form-container"><%= render partial: 'lists/form' %></div>
     <br/>
     <br/>
-      
+    <% @lists.each do |list| %>
+      <%= link_to list.title, list_tasks_path(list) %><br/>
+    <% end %>
   </div>
 </div>

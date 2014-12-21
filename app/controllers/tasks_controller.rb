@@ -1,19 +1,22 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
+
   
   def index
-    @tasks = Task.where(user_id: current_user.id) if current_user
+    @list = current_user.lists.find(params[:list_id])
+    @tasks = @list.tasks
     @tasks_complete = Task.where(complete: false)
     @tasks_complete = Task.where(complete: true)
   end
 
 
   def create
-    @task = current_user.tasks.new(task_params)
+    @list = current_user.lists.find(params[:list_id])
+    @task = @list.tasks.new(task_params)
     @tasks = current_user.tasks.all
     respond_to do |format|
       if @task.save
-        format.html { redirect_to tasks_path, notice: 'Post was successfully created.' }  
+        format.html { redirect_to list_tasks_path(@list), notice: 'Post was successfully created.' }  
         format.json { render action: 'index', status: :created, location: @task }
       else
         format.html { render action: 'new' } 
@@ -57,3 +60,7 @@ private
     params.require(:task).permit(:task_type, :priority, :duration_in_minutes, :complete, :optimal, :user_id)
   end
 end
+
+  def set_task
+    @task = Task.find(params[:id])
+  end

@@ -1,5 +1,5 @@
 <div class="form"> 
-  <%= form_for (Task.new) do |f| %>     
+  <%= form_for [@list, Task.new] do |f| %>     
     <%= f.text_field :task_type, placeholder: "add a task" %><br/><br/>
     <%= f.label :duration_in_minutes %><br/>
     <%= f.text_field :duration_in_minutes, id: "duration", readonly: true %><br/>

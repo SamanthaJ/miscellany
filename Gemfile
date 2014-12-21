@@ -31,7 +31,7 @@ gem 'devise', '~> 3.4.0'
 
 # This gem packages the jQuery UI assets (JavaScripts, stylesheets, and images) for the Rails asset pipeline, so you never have to download a custom package through the web interface again.
 
-gem 'jquery-ui-rails'
+gem 'jquery-ui-rails', '5.0.1'
 
 gem 'pry-rails'
 

@@ -2,16 +2,15 @@ class ListsController < ApplicationController
    before_action :authenticate_user!
   
   def index
-    @lists = List.where(user_id: current_user.id) if current_user
-    @tasks = current_user.tasks.all
+    @lists = current_user.lists
+    @task = current_user.tasks.new
   end
 
   def create
     @list= current_user.lists.new(list_params)
-    @lists = current_user.lists.all
     respond_to do |format|
       if @list.save
-        format.html { redirect_to list_tasks_path, notice: 'ToDo list was successfully created.' }  
+        format.html { redirect_to list_tasks_path(@list), notice: 'ToDo list was successfully created.' }  
         format.json { render action: 'index', status: :created, location: @list }
       else
         format.html { render action: 'new' } 

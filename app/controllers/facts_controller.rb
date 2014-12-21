@@ -1,5 +1,6 @@
 class FactsController < ApplicationController
   before_action :authenticate_user!
+  
 
   def index
     @facts = Fact.all 

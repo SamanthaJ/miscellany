@@ -1,14 +1,19 @@
 <div class="container">
-
   <div class="tasks-index">
-    <h1 class="title">TaskManager<br/><span class="title-description">{ prioritze your todo lists }</span></h1>
-    <%= link_to "Create a new todo list", '#', class: "links create-link" %>
+    <h1 class="title"><%= @list.title %><br/><span class="title-description">{ prioritze your todo lists }</span></h1>
+    <%= link_to "Add a task", '#', class: "links create-link" %>
     <div class="hidden-form-container"><%= render partial: 'tasks/form' %></div>
     <br/>
     <br/>
-    <% @tasks.each do |task| %>
-      <%= link_to task.task_type, task_path(task) %><br/>
-    <% end %>
+    <div class="container">
+     <% @tasks.each do |task| %>
+      <div class="row">
+        <div class="col-sm-2 col-md-4">
+            <%= task.task_type %>
+          <% end %>
+          </div>
+        </div>
+      </div>
   </div>
 </div>
 

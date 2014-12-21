@@ -1,9 +1,9 @@
 <div class="form">
     <%= form_for @fact do |f| %>   
       
-      <%= f.text_field :question, placeholder: "question" %><br/><br/>
+      <%= f.text_field :question, placeholder: "question"%><br/><br/>
       
-      <%= f.text_area :answer, placeholder: "answer" %><br/>
+      <%= f.text_area :answer, placeholder: "answer", maxlength: '500' %><br/>
 
       <%= f.submit 'Submit' %>
     <% end %>
