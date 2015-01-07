@@ -1,0 +1,11 @@
+<div class="sidebar-right">
+  <h2>past entries</h2>
+  <% @posts.each do |post| %>
+    <h4><%= link_to post.title, post_path(post)%></h4>
+  <% end %><br/>
+  <h2>blogging resources</h2>
+  <h4><%= link_to "problogger.net", "http://www.problogger.net/how-to-write-great-blog-content/"%></h4>
+  <h4><%= link_to "so you want to be a blogger?", "http://www.entrepreneur.com/article/236876"%></h4>
+  <h4><%= link_to "blogging 101","https://dailypost.wordpress.com/courses/blogging-101-zero-to-hero/"%></h4>
+  <h4><%= link_to "steps to becomming a better blogger", "http://www.lifehack.org/articles/technology/101-steps-to-becoming-a-better-blogger.html"%></h4>
+</div>

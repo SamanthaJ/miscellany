@@ -21,20 +21,15 @@
 //= require jquery.tip_cards.js
 //= require bootstrap-rating.min.js
 
-
-
 $( document ).ready( function () {
   $(".create-link").click(function() {
     $(".hidden-form-container").fadeIn("slow")
     $(".create-link").hide()
-
   })
 
   $("#product-table").dataTable();
 
   $("#task-table").dataTable();
-
-  
 
   $(".complete-check-box").change(function() {
     var form = $(this).closest('form')
@@ -56,13 +51,10 @@ $( document ).ready( function () {
     afterOpen: null // A callback function that will be executed after the modal opens.
   });
 
-
   $("#text-area").keyup(function(){
     var wordCount = $(this).val().length
     $('#word-count').text(wordCount)
   })
-
-
 
 }) 
 

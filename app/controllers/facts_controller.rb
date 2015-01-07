@@ -1,7 +1,6 @@
 class FactsController < ApplicationController
   before_action :authenticate_user!
   
-
   def index
     @facts = Fact.all 
     @fact = Fact.new
@@ -29,9 +28,7 @@ class FactsController < ApplicationController
   end
 
   private
-
   def fact_params
     params.require(:fact).permit(:question, :answer)
   end
-
 end

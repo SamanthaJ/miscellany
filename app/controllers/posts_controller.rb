@@ -4,26 +4,21 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_post, except: [:index, :new, :create]
   
- 
- 
   def index
     @posts = Post.all
     @post = Post.new
     @posts = @posts.sort_by(&:created_at).reverse.paginate(:page => params[:page], :per_page => 4)
   end
 
-  
   def show
     @comments = @post.comments
     @comment = Comment.new
   end
 
-  
   def new
      @post = Post.new
   end
 
-  
   def create
     @post = current_user.posts.new(post_params)
     respond_to do |format|
@@ -39,12 +34,11 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-
     flash.notice = "'#{@post.title}' has been Deleted!"
 
     redirect_to posts_path
   end
-  
+
   def update
     if current_user == @post.user
       @post.update(post_params)
@@ -57,7 +51,6 @@ class PostsController < ApplicationController
   end
 
   private
-
   def set_post
     @post = Post.find(params[:id])
   end

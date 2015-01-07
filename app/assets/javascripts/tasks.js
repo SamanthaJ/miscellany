@@ -1,7 +1,5 @@
 $(document).ready( function(){
-
  if ($('#slider-range-max1').length){
-  
    $( "#slider-range-max1" ).noUiSlider({
     start: 20,
     step: 1,
@@ -11,11 +9,8 @@ $(document).ready( function(){
       'max': 60
     }
   });
-
    $( "#slider-range-max1" ).on('slide', function(){
     $( "#duration" ).val( Math.round($(this).val()) );
   })
-
-  
  }
 })

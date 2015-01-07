@@ -101,7 +101,6 @@ th {
   font-size: 25px;
   font-weight: 100;
 }
-
 #duration {
   border: 0; 
   color: #f6931f; 
@@ -113,6 +112,9 @@ th {
 .strike-through {
   text-decoration: line-through;
   font-style: italic;
+}
+.panel {
+  width: 80%;
 }
 .panel-footer {
   background-color: #F8F8F8;
@@ -139,9 +141,11 @@ th {
 color: gold;
 font-size: 20px;
 }
-
 .italic {
   font-style: italic;
+}
+.glyphicon-time {
+  font-size: 20px;
 }
 
 
@@ -188,11 +192,11 @@ font-size: 20px;
 /* sidebar */
 
 
-#sidebar-right {
+.sidebar-right {
     float: right;
     width:150px;  
 }
-#sidebar-left {
+.sidebar-left {
     float: left;
     width: 150px;
     h4 {
@@ -218,6 +222,8 @@ footer a:hover {
 footer ul {
   float: right;
   list-style: none;
+  padding-right: 20px;
+  font-size: 18px;
 }
 
 

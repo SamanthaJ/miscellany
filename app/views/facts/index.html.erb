@@ -1,11 +1,6 @@
-<div class= "container">
-<h1 class="title">  
-  FactFlipper<br/><span class="title-description">{ A fun alternative to the standard flash card }</span>
-</h1>
+<h1 class="title">FactFlipper<br/><span class="title-description">{ A fun alternative to the standard flash card }</span></h1>
 <%= link_to "Create a flip card!", '#', class: "links create-link" %>
-<div class="hidden-form-container">
-  <%= render partial: 'form' %>
-</div> 
+<div class="hidden-form-container"><%= render partial: 'form' %></div> 
 <ul class="tips">
   <% @facts.each_with_index do |fact, i| %>
   <li href="<%= "#tip#{i}" %>">
@@ -18,5 +13,4 @@
   </li>
   <% end %>
 </ul>
-</div>
 

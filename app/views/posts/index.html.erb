@@ -1,47 +1,26 @@
-<div class="container">
-  <h1 class="title">Blogger<br/><span class="title-description">{ a simple blog }</span></h1>
-  <div class="image"><%= image_tag("http://cdn.elegantthemes.com/blog/wp-content/uploads/2014/03/blog-writing.jpg") %></div> 
-  <div id='sidebar-left'>
-    <h2>blog</h2>
-    <h4><%=link_to "bläɡ/","http://en.wikipedia.org/wiki/Blog" %></h4>
-    <h3>noun</h3>
-    <h4>1.a regularly updated website or web page, typically one run by an individual or small group, that is written in an informal or conversational style.</h4>
-    <h3>verb</h3>
-    <h4>verb: blog; 3rd person present: blogs; past tense: blogged; past participle: blogged; gerund or present participle: blogging<br/><br/>
-      1.add new material to or regularly update a blog.</h4> 
-  </div>
-  <div id="sidebar-right">
-    <h2>past entries</h2>
+<h1 class="title">Blogger<br/><span class="title-description">{ a simple blog }</span></h1>
+<div class="image"><%= image_tag("http://cdn.elegantthemes.com/blog/wp-content/uploads/2014/03/blog-writing.jpg") %></div> 
+<%= render 'posts/sidebar_left' %>
+<%= render 'posts/sidebar_right' %>
+<div class="row" id="content">
+  <div class="col-md-offset-2 col-md-8"> 
+    <%= link_to "Create a blog post", '#', class: "links create-link" %><br/><br/>
+    <div class="hidden-form-container"><%= render partial: 'form' %></div>
     <% @posts.each do |post| %>
-      <h4><%= link_to post.title, post_path(post)%></h4>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <h3><%= link_to post.title, post_path(post) %></h3>
+          <h4><%= truncate(post.body, length: 200) { link_to "Continue", post_path(post) }%></h4>
+          <footer class="footer">
+            <h4><%= link_to post_path(post), method: :get, class: "comments-button btn btn default btn-xs" do %> <span class="glyphicon glyphicon-comment"></span>
+              comments <%= post.comments.count %>
+              <% end %>
+              Posted: <%= time_ago_in_words(post.created_at) %> ago by: <%= post.user.email %>
+            </h4>
+          </footer> 
+        </li>
+      </ul> 
     <% end %>
-    <br/>
-    <h2>blogging resources</h2>
-    <h4><%= link_to "problogger.net", "http://www.problogger.net/how-to-write-great-blog-content/"%></h4>
-    <h4><%= link_to "so you want to be a blogger?", "http://www.entrepreneur.com/article/236876" %></h4>
-    <h4><%= link_to "blogging 101", "https://dailypost.wordpress.com/courses/blogging-101-zero-to-hero/" %></h4>
-    <h4><%= link_to "steps to becomming a better blogger", "http://www.lifehack.org/articles/technology/101-steps-to-becoming-a-better-blogger.html" %></h4>
-  </div>
-  <div class="row" id="content">
-    <div class="col-md-offset-2 col-md-8"> 
-      <%= link_to "Create a blog post", '#', class: "links create-link" %><br/><br/>
-      <div class="hidden-form-container"><%= render partial: 'form' %></div>
-        <% @posts.each do |post| %>
-        <ul class="list-group">
-          <li class="list-group-item">
-            <h3><%= link_to post.title, post_path(post) %></h3>
-            <h4><%= truncate(post.body, length: 200) { link_to "Continue", post_path(post) }%></h4>
-            <footer class="footer">
-              <h4><%= link_to post_path(post), method: :get, class: "comments-button btn btn default btn-xs" do %> <span class="glyphicon glyphicon-comment"></span>
-                comments  <%= post.comments.count %>
-                <% end %>
-                Posted: <%= time_ago_in_words(post.created_at) %> ago by: <%= post.user.email %>
-              </h4>
-            </footer> 
-          </li>
-        </ul> 
-        <% end %>
-    </div>
   </div>
 </div>
 <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>

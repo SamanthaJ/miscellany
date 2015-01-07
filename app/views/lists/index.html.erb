@@ -1,16 +1,21 @@
-  <h1 class="title">TaskManager<br/><span class="title-description">{ organize your todo lists }</span></h1>
-  <%= link_to "Create a new todo list", '#', class: "links create-link" %>
-  <div class="tasks-index">
-    <div class="hidden-form-container"><%= render partial: 'lists/form' %></div><br/>
+<h1 class="title">TaskManager<br/><span class="title-description">{ organize your todo lists }</span></h1>
+<%= render 'lists/sidebar_left' %>
+<%= render 'lists/sidebar_right' %>
+<div class="row" id="content">
+  <div class="col-md-offset-2 col-md-8"> 
+    <%= link_to "Create a new todo list", '#', class: "links create-link" %>
+    <div class="hidden-form-container"><%= render partial: 'lists/form' %></div><br/><br/>
+    <% @lists.each do |list| %>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <h3><%= link_to list.title, list_tasks_path(list)%></h3>
+        <footer class="footer">
+          <h4> created on <%= list.created_at.strftime("%B %d, %Y")%></h4>
+        </footer>
+      </li>
+    </ul>
+    <% end %> 
   </div>
-  <% @lists.each do |list| %>
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <h3><%= link_to list.title, list_tasks_path(list) %></h3>
-    </div>
-    <div class="panel-footer">
-      <h5> created on <%= list.created_at.strftime("%B %d, %Y") %></h5>
-      </div>
-  </div>
-  <% end %> 
+</div>
+
 
