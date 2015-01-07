@@ -1,21 +1,25 @@
-<div class="container">
-  <div class="tasks-index">
-    <h1 class="title"><%= @list.title %><br/><span class="title-description">{ prioritze your todo lists }</span></h1>
-    <%= link_to "Add a task", '#', class: "links create-link" %>
-    <div class="hidden-form-container"><%= render partial: 'tasks/form' %></div>
-    <br/>
-    <br/>
-    <div class="container">
-     <% @tasks.each do |task| %>
-      <div class="row">
-        <div class="col-sm-2 col-md-4">
-            <%= task.task_type %>
-          <% end %>
-          </div>
-        </div>
-      </div>
+<h1 class="title"><%= @list.title %><br/><span class="title-description">{ created on <%= @list.created_at.strftime("%B %d, %Y") %> }</span></h1>
+<%= link_to "Add a task", '#', class: "links create-link" %>
+<div class="hidden-form-container"><%= render partial: 'tasks/form' %></div><br/><br/>
+<% @tasks.each do |task| %>
+<div class="panel panel-default">
+  <%= form_for [@list, task] do |f| %> 
+  <div class="panel-body">
+  <h3>
+    <%= f.check_box :complete, class: "complete-check-box" %>
+    <%= f.label :complete, task.task_type, class:(strike_through(task) + "task-label")%>
+  </h3>
+  <h4 class="italic"><%= task_duration task%></h4>
+  </div>
+  <div class="panel-footer">
+  <div class="stars"><%= f.hidden_field :priority, class: "rating" %></div>
+  <% end %>
+  
   </div>
 </div>
+<% end %>
+
+
 
 
 

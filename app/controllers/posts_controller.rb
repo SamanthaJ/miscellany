@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   include PostsHelper
-  # require 'will_paginate/array'
+  require 'will_paginate/array'
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_post, except: [:index, :new, :create]
   
@@ -9,9 +9,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     @post = Post.new
-    # if params[:latest] 
-    #   @posts = @posts.order('created_at DESC').paginate(:page => params[:page], :per_page => 10)
-    # end
+    @posts = @posts.sort_by(&:created_at).reverse.paginate(:page => params[:page], :per_page => 4)
   end
 
   

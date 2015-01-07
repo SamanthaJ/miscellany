@@ -1,12 +1,16 @@
-<div class="container">
+  <h1 class="title">TaskManager<br/><span class="title-description">{ organize your todo lists }</span></h1>
+  <%= link_to "Create a new todo list", '#', class: "links create-link" %>
   <div class="tasks-index">
-    <h1 class="title">TaskManager<br/><span class="title-description">{ organize your todo lists }</span></h1>
-    <%= link_to "Create a new todo list", '#', class: "links create-link" %>
-    <div class="hidden-form-container"><%= render partial: 'lists/form' %></div>
-    <br/>
-    <br/>
-    <% @lists.each do |list| %>
-      <%= link_to list.title, list_tasks_path(list) %><br/>
-    <% end %>
+    <div class="hidden-form-container"><%= render partial: 'lists/form' %></div><br/>
   </div>
-</div>
+  <% @lists.each do |list| %>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h3><%= link_to list.title, list_tasks_path(list) %></h3>
+    </div>
+    <div class="panel-footer">
+      <h5> created on <%= list.created_at.strftime("%B %d, %Y") %></h5>
+      </div>
+  </div>
+  <% end %> 
+

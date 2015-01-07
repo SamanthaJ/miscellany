@@ -3,123 +3,103 @@
 @import "jquery-ui";
 @import "jquery.nouislider.min.css";
 @import "tip_cards.css";
+@import "bootstrap-rating.css";
 
 
+/* universal */
 
 
 * {
-  font-weight: 100;
-  // text-align: center;
+  font-weight: 100;  
 }
-table {
-    width: 100%;
-    text-align: left;
-    border-collapse: collapse;
-}
-
-tr {
-   border-bottom: transparent;
-
-}
-
-th {
-    height: 25px;
-    // text-align: center;
-    font-size: 30px;
-}
-
 body {
   padding-top: 60px;
   padding-bottom: 60px;
 }
 
-h1, h2, h3, h4, p {
+
+/* containers */
+
+
+#container {
+    width: 980px;
+    margin: 0 auto;
+}
+.hidden-form-container {
+  display: none;
+}
+#content {
+    overflow: hidden;
+}
+
+
+/* tags */
+
+
+h1, h2, h3, h4, h5, p {
   font-weight: 100;
   color: gray;
-}
-  
+}  
 h4 {
-
   font-size: 18px;
 }
-
 p {
   font-size: 25px;
 }
 
-.navbar-brand {
-  font-size: 30px;
+h5 {
+  font-size: 12px;
 }
 
-.title {
-  padding-bottom: 60px;
-  text-align: center;
 
-}
+/* tables */
 
-.title-description {
-  font-size: 20px;
-}
 
-.form {
- font-size: 15px;
- font-weight: 100;
-}
-
-.posted-by {
-  font-size: 18px;
-  color: gray;
-}
-
-.show-post {
-  // text-align: center;
-  font-size: 25px;
-  padding-bottom: 150px;
-}
-
-.links {
-  font-size: 20px;
-}
-
-.comments {
-  font-size: 25px;
-  font-weight: 100;
-}
-
-.hidden-form-container {
-  display: none;
-}
-
-.tasks-index {
-  font-size: 140%;
-  color: gray;
-}
-
-.product-show {
-  font-size: 20px;
-  text-align: left;
-  h2 {
+table {
+    width: 100%;
     text-align: left;
-  }
-  .links {
-    text-align: left;
-  }
+    border-collapse: collapse;
 }
-
+tr {
+   border-bottom: transparent;
+}
+th {
+    height: 25px;   
+    font-size: 30px;
+}
 #product-table {
   font-size:140%;
   color: gray;
 }
-
 #product-table_wrapper {
   overflow: scroll;
   width: 100%;
 }
 
-#amount {
-  border: 0; 
-  color: #f6931f; 
-  font-weight:bold;
+
+/* boilerplate */
+
+
+#navbar-brand {
+  font-size: 30px;
+  text-decoration: none;
+  color: black;
+  margin-left: 20px;
+}
+.title {
+  padding-bottom: 15px;
+  text-align: center;
+}
+.title-description {
+  font-size: 20px;
+}
+.form {
+ font-size: 15px;
+ font-weight: 100;
+}
+.comments {
+  font-size: 25px;
+  font-weight: 100;
 }
 
 #duration {
@@ -127,15 +107,61 @@ p {
   color: #f6931f; 
   font-weight:bold;
 }
-
 .glyphicon-check {
   display: none;
 }
+.strike-through {
+  text-decoration: line-through;
+  font-style: italic;
+}
+.panel-footer {
+  background-color: #F8F8F8;
+}
+.task-label {
+  font-weight: 100;
+  color: gray;
+  text-transform: capitalize; 
+}
+.rating {
+  background-color: yellow;
+}
+.list-group-item {
+  background-color: #F8F8F8;
+}
+.image {
+  text-align: center;
+  padding-bottom: 15px;
+}
+.black-color-for-text {
+  color: black;
+}
+.stars {
+color: gold;
+font-size: 20px;
+}
+
+.italic {
+  font-style: italic;
+}
+
+
+/* links */
+
+
+.links {
+  font-size: 20px;
+}
+.create-link {
+  text-align: center;
+}
+
+
+/* fact flipper */
+
 
 .tips {
   padding-top: 10%;
 }
-
 .tip {
   padding: 10px;
   font-size: 25px;
@@ -145,25 +171,62 @@ p {
     cursor: pointer;
   }
 }
-
 .tc_inner_modal {
   height: 200px;
   margin: 10%;
 }
-
 .tc_back {
   font-size: 20px;
   overflow: scroll;
 }
-
 .tc_front {
   font-size: 20px;
   overflow: scroll;
 }
 
-.create-link {
-  text-align: center;
+
+/* sidebar */
+
+
+#sidebar-right {
+    float: right;
+    width:150px;  
 }
+#sidebar-left {
+    float: left;
+    width: 150px;
+    h4 {
+      font-style: italic;
+    }  
+}
+
+
+/* footer */
+
+
+footer {
+  margin-top: 30px;
+  padding-top: 5px;
+  border-top: 1px solid #FF6600;
+}
+footer a {
+  color: #555;
+}
+footer a:hover {
+  color: #222;
+}
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+
+
+
+
+
+
+
 
 
 

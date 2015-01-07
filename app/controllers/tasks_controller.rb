@@ -4,9 +4,7 @@ class TasksController < ApplicationController
   
   def index
     @list = current_user.lists.find(params[:list_id])
-    @tasks = @list.tasks
-    @tasks_complete = Task.where(complete: false)
-    @tasks_complete = Task.where(complete: true)
+    @tasks = @list.tasks.sort_by { |task| task.complete ? 1 : 0 }
   end
 
 
@@ -26,22 +24,16 @@ class TasksController < ApplicationController
   end
 
   def update
+    @list = current_user.lists.find(params[:list_id])
     @task = Task.find(params[:id])
     @task.update(task_params)
 
     flash.notice = "'#{@task.task_type}' has been Updated!"
 
-    redirect_to tasks_path
-  end
-
-  def edit
-   @task = Task.find(params[:id])
+    redirect_to list_tasks_path @list
   end
 
 
-  def show
-    @task = Task.find(params[:id])
-  end
 
   def destroy
     @task = Task.find(params[:id])

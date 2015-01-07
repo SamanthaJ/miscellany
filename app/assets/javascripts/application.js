@@ -19,6 +19,7 @@
 //= require jquery-ui
 //= require jquery.flip.min.js
 //= require jquery.tip_cards.js
+//= require bootstrap-rating.min.js
 
 
 

@@ -1,30 +1,36 @@
-<div class="container"> 
-  <div class="show-post">
-    <h1><%= @post.title %></h1>
-    <br/>
+<h3><%= @post.title %></h3>    
+<h4>
+  <%= @post.body %><br/><br/>
+  Posted: <%= time_ago_in_words(@post.created_at) %> 
+  ago by: <%= @post.user.email %>
+</h4>
+
+<div class= "links">
+<% if current_user == @post.user %>
+  <%= link_to "Delete |", @post, method: :delete, data: {confirm: "You sure you want to delete this post?"} %>
+  <%= link_to "Edit", edit_post_path(@post)%><br/>
+<% end %>
+</div>
+</br>
+<h4><%= link_to post_path(@post), method: :get, class: "comments-button btn btn-default btn-xs" do %> <span class="glyphicon glyphicon-pencil"></span>
+      comments
+      <%= @post.comments.count %>
+      <% end %></h4>
+<% @comments.each do |comment| %>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <h4>
+        <%= comment.body %>
+        <footer class="footer comment-footer">
+          Posted: <%= time_ago_in_words(comment.created_at) %> ago by: <%= comment.user_name %>
+        </footer> 
+      </h4>
+    </li>
+  </ul>
+<% end %>
+<%= render partial: 'comments/form' %>
+<%= link_to "Back", posts_path %>
     
-<blockquote>
-  <p><%= @post.body %></p>
-  <footer> <cite title="Source Title"><%= @post.user.email %></cite></footer>
-</blockquote>
-    <%= link_to "Delete |", @post, method: :delete, data: {confirm: "You sure you want to delete this post?"}, class: "links" %>
-    <%= link_to "Edit", edit_post_path(@post), class: "links" %><br/>
-    <%= link_to "<<back", posts_path, class: "links" %>
-</div>
-<div class="row">
-  <div class="col-md-offset-4 col-md-4 comments">
-    <h3><%= pluralize @post.comments.count, "Comment" %></h3><br/>
-    <% @comments.each do |comment| %>
-    <p><%= comment.body %></p>
-    <div class="posted-by">
-      Posted: <%= time_ago_in_words(comment.created_at) %> ago</br>
-      by: <%= comment.user_name%></br><br/><br/>
-    <% end %>
-    </div>
-    <br/>
-    <%= render partial: 'comments/form' %>
-  </div>
-  <br/>
-  <br/>
-</div>
+
+
 
