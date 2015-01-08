@@ -1,6 +1,7 @@
 <div class="form"> 
   <%= form_for @post do |f| %>
-    <%= f.text_area :title, placeholder: "title", cols: '45', rows: '4' %><br/><br>
+  <div>character count :<span class="word-count">0</span>, 100 max</div>
+    <%= f.text_area :title, placeholder: "title", maximum: '100', cols: '45', rows: '4', class: 'text-area'%><br/><br>
     <%= f.text_area :body, placeholder: "body", cols: '85', rows: '10' %><br/>   
     <%= f.submit %>
   <% end %>

@@ -1,23 +1,33 @@
 <h1 class="title"><%= @list.title %><br/><span class="title-description">{ created on <%= @list.created_at.strftime("%B %d, %Y") %> }</span></h1>
-<%= link_to "Add a task", '#', class: "links create-link" %>
-<div class="hidden-form-container"><%= render partial: 'tasks/form' %></div><br/><br/>
-<% @tasks.each do |task| %>
-<div class="panel panel-default">
-  <%= form_for [@list, task] do |f| %> 
-  <div class="panel-body">
-  <h3>
-    <%= f.check_box :complete, class: "complete-check-box" %>
-    <%= f.label :complete, task.task_type, class:(strike_through(task) + "task-label")%>
-  </h3>
-  <h4 class="italic"><%= task_duration task%></h4>
-  </div>
-  <div class="panel-footer">
-  <div class="stars"><%= f.hidden_field :priority, class: "rating" %></div>
-  <% end %>
-  
+<%= render 'lists/sidebar_left' %>
+<%= render 'lists/sidebar_right' %>
+<div class="row" id="content">
+  <div class="col-md-offset-1 col-md-10"> 
+    <%= link_to "Add a task", '#', class: "links create-link" %>
+    <div class="hidden-form-container"><%= render 'tasks/form' %></div><br/><br/>
+    <% @tasks.each do |task| %>
+    <ul class="list-group" id="task">
+      <li class="list-group-item">
+        <%= form_for [@list, task] do |f| %> 
+          <h3>
+           <div id="checkbox">
+              <%= f.check_box :complete, class: "complete-check-box" %>
+              <%= f.label :complete, task.task_type,class:(strike_through(task) + "task-label")%>
+            </div>
+            <%= link_to "X", [@list, task], class: "links x-for-delete", method: :delete, data: {confirm: "you sure you want to delete this task?"} %> 
+          </h3>
+          <h4 class="italic"><%= task_duration task%></h4>
+          <footer class="footer ">
+            <div class="stars"><%= f.hidden_field :priority, class: "rating" %></div>
+          </footer>
+        <% end %>
+        </li>
+      </ul>
+    <% end %>
+    <%= link_to "back", lists_path, class: "links" %>
   </div>
 </div>
-<% end %>
+
 
 
 

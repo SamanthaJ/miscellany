@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   include PostsHelper
   require 'will_paginate/array'
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_post, except: [:index, :new, :create]
+  before_action :set_post, except: [:index, :create]
   
   def index
     @posts = Post.all
@@ -11,12 +11,9 @@ class PostsController < ApplicationController
   end
 
   def show
+    @posts = Post.all
     @comments = @post.comments
     @comment = Comment.new
-  end
-
-  def new
-     @post = Post.new
   end
 
   def create

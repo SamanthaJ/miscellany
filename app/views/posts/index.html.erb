@@ -5,17 +5,17 @@
 <div class="row" id="content">
   <div class="col-md-offset-2 col-md-8"> 
     <%= link_to "Create a blog post", '#', class: "links create-link" %><br/><br/>
-    <div class="hidden-form-container"><%= render partial: 'form' %></div>
+    <div class="hidden-form-container"><%= render 'posts/form' %></div>
     <% @posts.each do |post| %>
       <ul class="list-group">
         <li class="list-group-item">
           <h3><%= link_to post.title, post_path(post) %></h3>
           <h4><%= truncate(post.body, length: 200) { link_to "Continue", post_path(post) }%></h4>
           <footer class="footer">
-            <h4><%= link_to post_path(post), method: :get, class: "comments-button btn btn default btn-xs" do %> <span class="glyphicon glyphicon-comment"></span>
+            <h4><%= link_to post_path(post), method: :get, class: "btn btn-xs" do %> <span class="glyphicon glyphicon-comment"></span>
               comments <%= post.comments.count %>
               <% end %>
-              Posted: <%= time_ago_in_words(post.created_at) %> ago by: <%= post.user.email %>
+              Posted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.email %>
             </h4>
           </footer> 
         </li>

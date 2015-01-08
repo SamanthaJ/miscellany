@@ -1,15 +1,13 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_list
+  before_action :set_task, except: [:index, :create]
 
-  
   def index
-    @list = current_user.lists.find(params[:list_id])
     @tasks = @list.tasks.sort_by { |task| task.complete ? 1 : 0 }
   end
 
-
   def create
-    @list = current_user.lists.find(params[:list_id])
     @task = @list.tasks.new(task_params)
     @tasks = current_user.tasks.all
     respond_to do |format|
@@ -24,35 +22,30 @@ class TasksController < ApplicationController
   end
 
   def update
-    @list = current_user.lists.find(params[:list_id])
-    @task = Task.find(params[:id])
     @task.update(task_params)
-
     flash.notice = "'#{@task.task_type}' has been Updated!"
 
     redirect_to list_tasks_path @list
   end
 
-
-
   def destroy
-    @task = Task.find(params[:id])
     @task.destroy
-
     flash.notice = "'#{@task.task_type}' has been Deleted!"
 
-    redirect_to tasks_path
-
+    redirect_to list_tasks_path
   end
 
-
-private
-
+  private
   def task_params
     params.require(:task).permit(:task_type, :priority, :duration_in_minutes, :complete, :optimal, :user_id)
   end
 end
 
-  def set_task
-    @task = Task.find(params[:id])
-  end
+def set_list
+  @list = current_user.lists.find(params[:list_id]) 
+end
+
+def set_task
+  @task = Task.find(params[:id])
+end
+

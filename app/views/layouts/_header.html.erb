@@ -10,7 +10,10 @@
       <li><%= link_to "FactFlipper", facts_path %></li>
     </ul>
     <% if user_signed_in? %>
-      <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "navbar-text navbar-right" %>
+    <div class="navbar-text navbar-right">
+      <%= link_to current_user.email, edit_user_registration_path %>
+      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+    </div>
     <% else %>
       <%= link_to "Sign in", new_user_session_path, class: "navbar-text navbar-right" %>
     <% end %>

@@ -86,6 +86,12 @@ th {
   color: black;
   margin-left: 20px;
 }
+.navbar-right {
+  a {
+    text-decoration: none;
+    margin-right: 25px;
+  }
+}
 .title {
   padding-bottom: 15px;
   text-align: center;
@@ -146,7 +152,18 @@ font-size: 20px;
 }
 .glyphicon-time {
   font-size: 20px;
+  color: gold;
 }
+.x-for-delete {
+  float: right;
+}
+#task {
+  opacity: 1;
+}
+.comments-body {
+  width: 50%
+}
+
 
 
 /* links */
@@ -198,10 +215,7 @@ font-size: 20px;
 }
 .sidebar-left {
     float: left;
-    width: 150px;
-    h4 {
-      font-style: italic;
-    }  
+    width: 150px; 
 }
 
 

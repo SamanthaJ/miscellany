@@ -2,7 +2,7 @@
   <div class="products-index">
     <h1 class="title">InventoryTracker<br/><span class="title-description">{ a clean and efficient approach to managing inventory }</span></h1>
     <%= link_to "Create a new product", '#', class: "links create-link" %>
-    <div class="hidden-form-container"><%= render partial: 'form' %></div>
+    <div class="hidden-form-container"><%= render 'products/form' %></div>
     <table id="product-table" class="table table-striped table-bordered table-hover">
       <thead>
         <tr>
@@ -14,7 +14,6 @@
           <th>Actions</th>
         </tr>
       </thead>
-
       <tfoot>
           <tr>
             <th>Title</th>
@@ -24,7 +23,6 @@
             <th>Actions</th>
             </tr>
       </tfoot>
-
       <tbody>
         <% @products.each do |product| %>
           <tr>

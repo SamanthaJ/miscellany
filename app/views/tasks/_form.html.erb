@@ -2,7 +2,7 @@
   <%= form_for [@list, Task.new] do |f| %> 
     <%= f.text_field :task_type, placeholder: "add a task" %><br/><br/>    
     <%= f.label :priority %><br/>
-    <%= f.hidden_field :priority, class: "rating" %><br/>
+    <div class="stars"><%= f.hidden_field :priority, class: "rating" %></div>
     <%= f.hidden_field :complete, value: false %>
     <%= f.hidden_field :optimal, value: false %><br/>
     <%= f.label :duration_in_minutes %><br/>

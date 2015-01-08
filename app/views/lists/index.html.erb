@@ -2,13 +2,17 @@
 <%= render 'lists/sidebar_left' %>
 <%= render 'lists/sidebar_right' %>
 <div class="row" id="content">
-  <div class="col-md-offset-2 col-md-8"> 
+  <div class="col-md-10 col-md-offset-1"> 
+    <h2>My Lists</h2>
     <%= link_to "Create a new todo list", '#', class: "links create-link" %>
     <div class="hidden-form-container"><%= render partial: 'lists/form' %></div><br/><br/>
     <% @lists.each do |list| %>
     <ul class="list-group">
       <li class="list-group-item">
-        <h3><%= link_to list.title, list_tasks_path(list)%></h3>
+        <h3>
+        <%= link_to list.title, list_tasks_path(list)%>
+        <%= link_to "X", list, class: "links x-for-delete", method: :delete, data: {confirm: "you sure you want to delete this task?"} %> 
+        </h3>
         <footer class="footer">
           <h4> created on <%= list.created_at.strftime("%B %d, %Y")%></h4>
         </footer>
