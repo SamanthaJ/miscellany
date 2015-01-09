@@ -36,11 +36,6 @@ $( document ).ready( function () {
     form.submit();
   })
 
-  $('#checkbox').click(function(){
-    $('#task').fadeTo("slow", 0.5, function() {
-    // Animation complete.
-  });
-  });
 
   $(".tips").tip_cards({
     entrance: "bottom", // This option let you determine the direction of the fly in entrance animation when all the cards appears. Available options are "bottom", "left", "right", and "top". The default value is "bottom".

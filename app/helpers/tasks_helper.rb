@@ -1,4 +1,9 @@
 module TasksHelper
+
+  def complete task
+    "opaque" if task.complete
+  end
+  
   def strike_through task 
     task.complete ? "strike-through " : ""
   end
