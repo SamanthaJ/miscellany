@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+  class CommentsController < ApplicationController
   include CommentsHelper
   
   def create

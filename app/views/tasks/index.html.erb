@@ -3,7 +3,7 @@
 <%= render 'lists/sidebar_right' %>
 <div class="row" id="content">
   <div class="col-md-offset-1 col-md-10"> 
-    <%= link_to "Add a task", '#', class: "links create-link" %>
+    <%= link_to "add a task", '#', class: "links create-link" %>
     <div class="hidden-form-container"><%= render 'tasks/form' %></div><br/><br/>
     <% @tasks.each do |task| %>
     <ul class="list-group <%= complete(task)%>">

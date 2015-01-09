@@ -1,5 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe List, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
-end
+describe List do
+  it "has a valid factory" do 
+    expect(build(:list)).to be_valid
+  end
+  
+  it "is invalid without a title " do 
+    list = build(:list, title: nil)
+    list.valid?
+    expect(list.errors[:title]).to include("can't be blank")
+  end 
+end 

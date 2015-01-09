@@ -18,14 +18,34 @@ feature 'Blogger' do
     expect(page).to have_button ('Create Post')
   end
   scenario 'creates blog post' do 
-    click_link 'Blogger'
-    click_link 'create a blog post' 
-    fill_in 'title', with: 'post title'
-    fill_in 'body', with: 'post body'
-    click_button 'Create Post'
+    create_blog_post
 
     expect(page).to have_content ('Post was successfully created.')
   end 
+  scenario 'deletes blog post' do
+    create_blog_post
+    click_link 'delete |'
+
+    expect(page).to have_content(" '@post.title' has been Deleted!")
+  end
+  scenario 'creates comment' do 
+    create_blog_post
+    @comment = build(:comment)
+    fill_in "name", with: "@comment.user_name"
+    fill_in "comment", with: "@comment.body"
+    click_button "Submit"
+
+    expect(page).to have_content("@comment.body")
+  end
+end
+
+def create_blog_post
+  click_link 'Blogger'
+  click_link 'create a blog post' 
+  @post = build(:post)
+  fill_in "title", with: '@post.title'
+  fill_in "body", with: '@post.body'
+  click_button 'Create Post'
 end
 
 def visit_sign_in_page

@@ -7,28 +7,19 @@ feature 'User management' do
   
   scenario 'user signs up with valid info' do
     click_link 'Sign up'
-    fill_in 'Email', with: 'email@example.com'
-    fill_in 'Password', with: 'password'
-    fill_in 'Password confirmation', with: 'password'
+    @user = build(:user)
+    fill_in 'Email', with: @user.email
+    fill_in 'Password', with: @user.password
+    fill_in 'Password confirmation', with: @user.password
     click_button 'Sign up'
     
     expect(page).to have_content('Welcome! You have signed up successfully.')
   end
-
   scenario 'logs in properly' do
     log_in
     
     expect(page).to have_content ('Signed in successfully.')
   end
-
-  scenario "doesn't allow log in with invalid info" do   
-    fill_in 'Email', with: 'test@example.com'
-    fill_in 'Password', with: ''
-    click_button 'Log in'
-    
-    expect(page).to have_content('Invalid email or password.')
-  end 
-
   scenario "logs out properly" do 
     log_in
     click_link 'Sign out'

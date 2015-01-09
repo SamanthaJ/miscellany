@@ -4,7 +4,7 @@
 <div class="row" id="content">
   <div class="col-md-10 col-md-offset-1"> 
     <h2>My Lists</h2>
-    <%= link_to "Create a new todo list", '#', class: "links create-link" %>
+    <%= link_to "create a new todo list", '#', class: "links create-link" %>
     <div class="hidden-form-container"><%= render partial: 'lists/form' %></div><br/><br/>
     <% @lists.each do |list| %>
     <ul class="list-group">
