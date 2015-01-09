@@ -4,7 +4,7 @@
 <%= render 'posts/sidebar_right' %>
 <div class="row" id="content">
   <div class="col-md-offset-2 col-md-8"> 
-    <%= link_to "Create a blog post", '#', class: "links create-link" %><br/><br/>
+    <%= link_to "create a blog post", '#', class: "links create-link" %><br/><br/>
     <div class="hidden-form-container"><%= render 'posts/form' %></div>
     <% @posts.each do |post| %>
       <ul class="list-group">

@@ -20,12 +20,12 @@ describe Product do
   it "is invalid without a description" do 
     product = build(:product, description: nil)
     product.valid?
-    expect(:product.errors[:description]).to include("can't be blank")
+    expect(product.errors[:description]).to include("can't be blank")
   end
 
   it "is invalid without a stock" do 
     product = build(:product, stock: nil)
     product.valid?
-    expect(:product.errors[:stock]).to include("can't be blank")
+    expect(product.errors[:stock]).to include("can't be blank")
   end
 end

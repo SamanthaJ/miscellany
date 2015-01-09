@@ -1,5 +1,4 @@
 module TasksHelper
-
   def complete task
     "opaque" if task.complete
   end
