@@ -35,7 +35,10 @@ gem 'pry-rails'
 
 gem 'will_paginate-bootstrap'
 
-gem 'rails_12factor', group: :production
+group :production do
+  gem 'rails_12factor'
+  gem 'pg'
+end
 
 group :development, :test do
   gem 'rspec-rails'
