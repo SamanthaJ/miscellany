@@ -22,14 +22,18 @@ body {
 
 
 #container {
-    width: 980px;
-    margin: 0 auto;
+  width: 980px;
+  margin: 0 auto;
 }
 .hidden-form-container {
   display: none;
 }
 #content {
-    overflow: hidden;
+  overflow: hidden;
+}
+.landing-page-container{
+  text-align: center;
+  padding-top: 50px;
 }
 
 
@@ -159,6 +163,9 @@ font-size: 20px;
 .comments-body {
   width: 50%
 }
+.jumbotron {
+  border: 2px solid #FF6600;
+}
 
 
 /* links */
@@ -216,24 +223,25 @@ font-size: 20px;
 
 /* footer */
 
-
-footer {
-  margin-top: 30px;
-  padding-top: 5px;
+.footer {
+  margin-top: 20px;
   border-top: 1px solid #FF6600;
+  background-color: #F8F8F8;
+  padding-top: 7px;
 }
-footer a {
+.footer a {
   color: #555;
 }
-footer a:hover {
+.footer a:hover {
   color: #222;
 }
-footer ul {
+.footer ul {
   float: right;
   list-style: none;
   padding-right: 20px;
-  font-size: 18px;
+  font-size: 15px;
 }
+
 
 
 

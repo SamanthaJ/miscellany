@@ -5,24 +5,21 @@ feature 'InventoryTracker' do
     visit_sign_in_page
     log_in
   end
-
   scenario 'Creates product' do 
     create_product
 
     expect(page).to have_content('Product was successfully created.')
   end
-
   scenario 'Deletes product' do
     create_product
     click_link '| Delete |'
 
     expect(page).to have_content('Product was successfully destroyed.')
   end
-
   scenario 'Edits product' do 
     create_product
     click_link '| Edit |'
-    fill_in 'Price', with: '6'
+    fill_in 'price', with: '6'
     click_button 'Update Product'
 
     expect(page).to have_content('Product was successfully updated.')
@@ -33,10 +30,10 @@ def create_product
   click_link 'InventoryTracker'
   click_link 'create a new product'
   @product = build(:product)
-  fill_in 'Title', with: '@product.title'
-  fill_in 'Description', with: '@product.description'
-  fill_in 'Price', with: '@product.price'
-  fill_in 'Stock', with: '@product.stock'
+  fill_in 'title', with: '@product.title'
+  fill_in 'description', with: '@product.description'
+  fill_in 'price', with: '@product.price'
+  fill_in 'stock', with: '@product.stock'
   click_button 'Create Product'
 end
 def visit_sign_in_page

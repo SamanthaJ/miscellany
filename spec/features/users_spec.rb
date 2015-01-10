@@ -3,8 +3,7 @@ require 'rails_helper'
 feature 'User management' do 
   before :each do 
     visit_sign_in_page
-  end
-  
+  end 
   scenario 'user signs up with valid info' do
     click_link 'Sign up'
     @user = build(:user)
