@@ -48,6 +48,8 @@ def create_blog_post
   click_button 'Create Post'
 end
 
+
+#extract into helper
 def visit_sign_in_page
   visit root_path
   click_link 'Sign in'

@@ -27,6 +27,7 @@ feature 'User management' do
   end
 end
 
+#extract into helper
 def visit_sign_in_page
   visit root_path
   click_link 'Sign in'

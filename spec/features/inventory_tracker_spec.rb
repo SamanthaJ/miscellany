@@ -36,6 +36,8 @@ def create_product
   fill_in 'stock', with: '@product.stock'
   click_button 'Create Product'
 end
+
+#extract into helper
 def visit_sign_in_page
   visit root_path
   click_link 'Sign in'

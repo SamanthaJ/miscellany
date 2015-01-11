@@ -16,6 +16,8 @@ feature 'FactFlipper' do
     expect(page).to have_content("flip card was successfully created.")
   end
 end
+
+#extract into helper
 def visit_sign_in_page
   visit root_path
   click_link 'Sign in'
