@@ -2,8 +2,8 @@ class FactsController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @facts = Fact.all 
-    @fact = Fact.new
+    @facts = current_user.facts
+    @fact = current_user.facts.new
   end
 
   def new
