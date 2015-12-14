@@ -1,8 +1,8 @@
-<div class="form">
+<div class="input-group">
   <h1>Post a Comment</h1>
-    <%= form_for [@post, @comment] do |f| %>  
-      <%= f.text_field :user_name, placeholder: "name" %><br/><br/>
-      <%= f.text_area :body, placeholder: "comment" %><br/>
+    <%= form_for [@post, @comment] do |f| %>
+      <%= f.text_field :user_name, placeholder: "name", class:'form-control' %><br/><br/>
+      <%= f.text_area :body, placeholder: "comment", class:'form-control' %>
       <%= f.submit 'Submit' %>
     <% end %>
 </div>

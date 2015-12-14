@@ -1,9 +1,9 @@
 <h1 class="title">Blogger<br/><span class="title-description">{ a simple blog }</span></h1>
-<div class="image"><%= image_tag("http://cdn.elegantthemes.com/blog/wp-content/uploads/2014/03/blog-writing.jpg") %></div> 
+<div class="image"><%= image_tag("http://cdn.elegantthemes.com/blog/wp-content/uploads/2014/03/blog-writing.jpg") %></div>
 <%= render 'posts/sidebar_left' %>
 <%= render 'posts/sidebar_right' %>
 <div class="row" id="content">
-  <div class="col-md-offset-2 col-md-8"> 
+  <div class="col-md-offset-2 col-md-8">
     <%= link_to "create a blog post", '#', class: "links create-link" %><br/><br/>
     <div class="hidden-form-container"><%= render 'posts/form' %></div>
     <% @posts.each do |post| %>
@@ -17,10 +17,12 @@
               <% end %>
               Posted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.email %>
             </h4>
-          </footer> 
+          </footer>
         </li>
-      </ul> 
+      </ul>
     <% end %>
   </div>
 </div>
-<%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+<div class="paginate-container text-center">
+  <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+</div>

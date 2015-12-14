@@ -1,6 +1,6 @@
-<div class="form"> 
-  <%= form_for (List.new) do |f| %>     
-    <%= f.text_area :title, placeholder: "name of your todo list", cols: '50' %><br/><br/>
+<div class="form">
+  <%= form_for (List.new) do |f| %>
+    <%= f.text_field :title, placeholder: "name of your todo list", class:'form-control' %><br/><br/>
     <%= f.submit %>
-  <% end %> 
+  <% end %>
 </div>

@@ -1,10 +1,9 @@
-<div class= "form">
+<div class="input-group">
   <%= form_for @product do |f| %>
-    <%= f.text_field :title, placeholder: "title" %><br/><br/>
-    <%= f.text_area :description, placeholder: "description" %><br/><br/>
-    <%= f.number_field :price, placeholder: "price", step: 'any' %><br/><br/>
-    <%= f.number_field :stock, placeholder: "stock" %><br/><br/>
+    <%= f.text_field :title, placeholder: "title", class:'form-control', class:'form-control' %><br/><br/>
+    <%= f.text_area :description, placeholder: "description", class:'form-control' %><br/><br/>
+    <%= f.number_field :price, placeholder: "price", step: 'any', class:'form-control' %><br/><br/>
+    <%= f.number_field :stock, placeholder: "stock", class:'form-control' %><br/><br/>
     <%= f.submit %><br/><br/>
   <% end %>
 </div>
-

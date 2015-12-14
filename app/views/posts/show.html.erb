@@ -1,8 +1,8 @@
 <%= render 'posts/sidebar_left' %>
 <%= render 'posts/sidebar_right' %>
 <div class="row" id="content">
-  <div class="col-md-offset-2 col-md-8"> 
-    <h3><%= @post.title %></h3>    
+  <div class="col-md-offset-2 col-md-8">
+    <h3><%= @post.title %></h3>
     <h4><%= @post.created_at.strftime("%B %d, %Y") %></h4>
     <h4><%= @post.body %></h4>
     <h4>posted by <%= @post.user.email %></h4>
@@ -14,7 +14,7 @@
     </div>
     <h4>
       <%= link_to post_path(@post), method: :get, class: "comments-button btn btn-default btn-xs" do %> <span class="glyphicon glyphicon-pencil"></span>
-      comments<%= @post.comments.count %>
+      comments <%= @post.comments.count %>
       <% end %>
     </h4>
     <% @comments.each do |comment| %>
@@ -24,7 +24,7 @@
             <%= comment.body %>
             <footer class="footer comment-footer">
               posted <%= time_ago_in_words(comment.created_at) %> ago by <%= comment.user_name %>
-            </footer> 
+            </footer>
           </h4>
         </li>
       </ul>
@@ -33,7 +33,3 @@
     <%= link_to "Back", posts_path %>
   </div>
 </div>
-      
-
-
-
